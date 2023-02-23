@@ -13,6 +13,7 @@ import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { FinishRegisterComponent } from './finish-register/finish-register.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { RequestNewPasswordComponent } from './request-new-password/request-new-password.component';
+import { InactiveAccountComponent } from './inactive-account/inactive-account.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -28,7 +29,8 @@ export function playerFactory(): any {
         VerifyOtpComponent,
         FinishRegisterComponent,
         ChangePasswordComponent,
-        RequestNewPasswordComponent
+        RequestNewPasswordComponent,
+        InactiveAccountComponent
     ],
     imports: [
         BrowserModule,

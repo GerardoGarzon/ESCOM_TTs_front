@@ -3,6 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {VerifyOtpComponent} from "./verify-otp/verify-otp.component";
+import {FinishRegisterComponent} from "./finish-register/finish-register.component";
+import {InactiveAccountComponent} from "./inactive-account/inactive-account.component";
 
 const routes: Routes = [
     {
@@ -14,9 +16,21 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'verify-otp',
+        path: 'verify/otp',
         component: VerifyOtpComponent
-    }
+    },
+    {
+        path: 'complete/register',
+        component: FinishRegisterComponent
+    },
+    {
+        path: 'inactive/account',
+        component: InactiveAccountComponent
+    },
+    {
+        path: 'forgot/password',
+        component: InactiveAccountComponent
+    },
 ];
 
 @NgModule({
