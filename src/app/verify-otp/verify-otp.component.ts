@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-verify-otp',
-  templateUrl: './verify-otp.component.html',
-  styleUrls: ['./verify-otp.component.scss']
+    selector: 'app-verify-otp',
+    templateUrl: './verify-otp.component.html',
+    styleUrls: ['./verify-otp.component.scss']
 })
 export class VerifyOtpComponent {
 

@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InactiveAccountComponent } from './inactive-account.component';
+import {InactiveAccountComponent} from './inactive-account.component';
 
 describe('InactiveAccountComponent', () => {
-  let component: InactiveAccountComponent;
-  let fixture: ComponentFixture<InactiveAccountComponent>;
+    let component: InactiveAccountComponent;
+    let fixture: ComponentFixture<InactiveAccountComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ InactiveAccountComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [InactiveAccountComponent]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(InactiveAccountComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(InactiveAccountComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

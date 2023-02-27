@@ -3,13 +3,13 @@ import {AnimationOptions} from "ngx-lottie";
 import {AnimationItem} from "lottie-web";
 
 @Component({
-    selector: 'app-inactive-account',
-    templateUrl: './inactive-account.component.html',
-    styleUrls: ['./inactive-account.component.scss']
+    selector: 'app-not-found-page',
+    templateUrl: './not-found-page.component.html',
+    styleUrls: ['./not-found-page.component.scss']
 })
-export class InactiveAccountComponent {
+export class NotFoundPageComponent {
     options: AnimationOptions = {
-        path: '/assets/lottie/teacher-activate.json'
+        path: '/assets/lottie/error_404.json'
     };
 
     constructor() {
