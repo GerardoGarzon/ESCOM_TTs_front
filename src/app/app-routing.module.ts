@@ -20,11 +20,11 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'verify/otp',
+        path: 'verify/otp/:email',
         component: VerifyOtpComponent
     },
     {
-        path: 'complete/register',
+        path: 'complete/register/:token',
         component: FinishRegisterComponent
     },
     {

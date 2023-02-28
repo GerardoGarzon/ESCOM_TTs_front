@@ -7,7 +7,7 @@
                         <img class="w-50" src="assets/logo/escudoESCOM.png">
                     </div>
                     <div class="col d-flex flex-column justify-content-center">
-                        <form class="px-0 px-lg-5">
+                        <form class="px-0 px-lg-5" [formGroup]="formularioCreado">
                             <div class="d-none d-md-flex d-lg-none align-items-center justify-content-center py-3">
                                 <img class="w-25" src="assets/logo/escudoESCOM.png">
                             </div>
@@ -15,32 +15,43 @@
                                 <img class="w-50" src="assets/logo/escudoESCOM.png">
                             </div>
                             <h3 class="my-3">Ingresar codigo</h3>
+                            <p>Se envio un codigo a tu correo institucional</p>
 
                             <div class="input-group my-5">
-                                <input aria-label="otp-1" class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                <input aria-label="otp-1"
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
                                        maxlength="1"
-                                       size="1" type="text">
-                                <input aria-label="otp-2" class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       size="1" type="text"
+                                        formControlName="num_1">
+                                <input aria-label="otp-2"
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
                                        maxlength="1"
-                                       size="1" type="text">
-                                <input aria-label="otp-3" class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       size="1" type="text"
+                                       formControlName="num_2">
+                                <input aria-label="otp-3"
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
                                        maxlength="1"
-                                       size="1" type="text">
-                                <input aria-label="otp-4" class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       size="1" type="text"
+                                       formControlName="num_3">
+                                <input aria-label="otp-4"
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
                                        maxlength="1"
-                                       size="1" type="text">
-                                <input aria-label="otp-5" class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border"
+                                       size="1" type="text"
+                                       formControlName="num_4">
+                                <input aria-label="otp-5"
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border"
                                        maxlength="1"
-                                       size="1" type="text">
+                                       size="1" type="text"
+                                       formControlName="num_5">
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center">
                                 No recibiste tu codigo?
-                                <button class="btn btn-link link-dark" type="button">Reenviar</button>
+                                <button class="btn btn-link link-dark" type="button" (click)="reenviarCodigo()">Reenviar</button>
                             </div>
 
                             <div class="d-grid col-6 mx-auto my-2">
-                                <button class="btn btn-dark" routerLink="/complete/register" type="submit">Continuar
+                                <button class="btn btn-dark" (click)="verificarOTP()" type="submit">Continuar
                                 </button>
                             </div>
                         </form>
@@ -48,5 +59,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+            <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0"
+                 id="liveToast" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ this.message }}
+                    </div>
+                    <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            type="button"></button>
+                </div>
+            </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+            <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-success border-0"
+                 id="liveToastSuccess" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ this.message }}
+                    </div>
+                    <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showSpinner"
+     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
     </div>
 </div>

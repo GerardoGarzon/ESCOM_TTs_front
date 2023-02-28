@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Token} from "../../models/token";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -21,8 +21,8 @@ export class AuthServiceService {
             },
             {
                 headers: {
-                    'Content-Type':'application/json; charset=utf-8',
-                    'Accept':'application/json'
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json'
                 }
             })
     }

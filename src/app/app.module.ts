@@ -13,7 +13,7 @@ import {InactiveAccountComponent} from './inactive-account/inactive-account.comp
 import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 
 // Export this function
 export function playerFactory(): any {

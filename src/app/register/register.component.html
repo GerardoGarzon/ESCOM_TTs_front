@@ -7,7 +7,7 @@
                         <img class="w-50" src="assets/logo/escudoESCOM.png">
                     </div>
                     <div class="col d-flex flex-column justify-content-center">
-                        <form class="px-0 px-lg-5">
+                        <form class="px-0 px-lg-5" [formGroup]="formularioCreado">
                             <div class="d-none d-md-flex d-lg-none align-items-center justify-content-center py-3">
                                 <img class="w-25" src="assets/logo/escudoESCOM.png">
                             </div>
@@ -18,33 +18,34 @@
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="floatingInputEmail" placeholder="name@alumno.ipn.mx"
-                                       required type="email">
+                                       required type="email" formControlName="email">
                                 <label for="floatingInputEmail">Correo institucional</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="floatingPassword" placeholder="Contraseña"
-                                       required type="password">
+                                       required type="password" formControlName="password">
                                 <label for="floatingPassword">Contraseña</label>
                             </div>
 
                             <div class="form-check green form-switch green pb-2">
-                                <input [(ngModel)]="isAlumno" [ngModelOptions]="{standalone: true}" checked class="form-check-input" id="switchAlumn"
-                                       role="switch" type="checkbox">
+                                <input [(ngModel)]="isAlumno" checked
+                                       class="form-check-input" id="switchAlumn"
+                                       role="switch" type="checkbox" formControlName="isAlumno">
                                 <label class="form-check-label" for="switchAlumn">¿Eres alumno?</label>
                             </div>
 
                             <div *ngIf="isAlumno" class="py-3">
-                                <select aria-label="Default select example" class="form-select">
-                                    <option disabled selected>Selecciona un profesor</option>
-                                    <ng-template ngFor let-profesor [ngForOf]="profesores">
+                                <select aria-label="Default select example" class="form-select" formControlName="profesorId">
+                                    <option value="-1" disabled selected>Selecciona un profesor</option>
+                                    <ng-template [ngForOf]="profesores" let-profesor ngFor>
                                         <option [value]="profesor.id"> {{ profesor.name }} </option>
                                     </ng-template>
                                 </select>
                             </div>
 
                             <div class="d-grid col-6 mx-auto my-2">
-                                <button class="btn btn-dark" routerLink="/verify/otp" type="submit">Continuar</button>
+                                <button class="btn btn-dark" type="submit" (click)="createPreregister()">Continuar</button>
                             </div>
 
                             <hr class="mb-3">
@@ -58,5 +59,24 @@
                 </div>
             </div>
         </div>
+        <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+            <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0"
+                 id="liveToast" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ this.message }}
+                    </div>
+                    <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showSpinner"
+     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
     </div>
 </div>

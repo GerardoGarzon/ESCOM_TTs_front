@@ -7,7 +7,7 @@
                         <img class="w-50" src="assets/logo/escudoESCOM.png">
                     </div>
                     <div class="col d-flex flex-column justify-content-center">
-                        <form class="px-0 px-lg-5">
+                        <form class="px-0 px-lg-5" [formGroup]="formularioCreado">
                             <div class="d-none d-md-flex d-lg-none align-items-center justify-content-center py-3">
                                 <img class="w-25" src="assets/logo/escudoESCOM.png">
                             </div>
@@ -18,24 +18,24 @@
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="floatingInputEmail" placeholder="Nombre Apellido"
-                                       required type="text">
+                                       required type="text" formControlName="nombre">
                                 <label for="floatingInputEmail">Nombre completo</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="floatingPassword" placeholder="55 44 33 22 11"
-                                       required type="tel">
+                                       required type="tel" formControlName="telefono">
                                 <label for="floatingPassword">Telefono</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="floatingBoleta" placeholder="2000112233" required
-                                       type="tel">
+                                       type="text" formControlName="boleta">
                                 <label for="floatingBoleta">Boleta</label>
                             </div>
 
                             <div class="d-grid col-6 mx-auto my-2">
-                                <button class="btn btn-dark" routerLink="/inactive/account" type="submit">Finalizar
+                                <button class="btn btn-dark" (click)="completarRegistro()" type="submit">Finalizar
                                 </button>
                             </div>
                         </form>

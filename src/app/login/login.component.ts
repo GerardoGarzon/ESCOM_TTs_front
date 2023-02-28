@@ -64,10 +64,10 @@ export class LoginComponent implements OnInit {
                 this.showSpinner = true
                 this.AuthInyectado.login(this.formularioCreado.controls['email'].value,
                     this.formularioCreado.controls['password'].value).subscribe((token) => {
-                        this.showSpinner = false
-                        if ( typeof token.message !== 'undefined' ) {
-                            this.showToastError(token.message)
-                        }
+                    this.showSpinner = false
+                    if (typeof token.message !== 'undefined') {
+                        this.showToastError(token.message)
+                    }
                 });
             }
         }
