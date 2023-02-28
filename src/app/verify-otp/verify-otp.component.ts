@@ -41,9 +41,10 @@ export class VerifyOtpComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.email = this.router.snapshot.params['email']
+        // @ts-ignore
+        this.email = localStorage.getItem('userEmail')
 
-        if (this.email == '') {
+        if (this.email == null || this.email == '') {
             this.route.navigate(['/'])
         }
 

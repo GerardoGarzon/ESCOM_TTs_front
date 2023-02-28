@@ -33,6 +33,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.crearFormulario()
+
+        let success = localStorage.getItem('successRegister')
+        if (success != null && success == 'true') {
+            this.showToastSuccess('Registro exitoso')
+            localStorage.clear()
+        }
     }
 
     // This is the component function that binds to the animationCreated event from the package
@@ -84,6 +90,13 @@ export class LoginComponent implements OnInit {
             this.message = this.validation_errors[0]
         }
         const toastLiveExample = document.getElementById('liveToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    }
+
+    showToastSuccess(successMessage: string) {
+        this.message = successMessage
+        const toastLiveExample = document.getElementById('liveToastSuccess')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
     }

@@ -76,7 +76,9 @@ export class RegisterComponent implements OnInit {
                 this.PreregisterInjection.crearPreregistro(email, password, isAlumno, profesorId).subscribe((preregisterResponse) => {
                     this.showSpinner = false
                     if (preregisterResponse.code == 201 || preregisterResponse.code == 200) {
-                        this.router.navigate(['/verify/otp/', email])
+                        localStorage.setItem('userEmail', email)
+                        localStorage.setItem('userType', isAlumno)
+                        this.router.navigate(['/verify/otp'])
                     } else {
                         this.showToastError(preregisterResponse.message)
                     }

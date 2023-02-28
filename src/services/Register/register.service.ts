@@ -5,6 +5,7 @@ import {CreatePreregisterResponse} from "../Responses/CreatePreregisterResponse"
 import {Token} from "../../models/token";
 import {VerifyOTPResponse} from "../Responses/VerifyOTPResponse";
 import {ResendCodeResponse} from "../Responses/ResendCodeResponse";
+import {FinishRegisterResponse} from "../Responses/FinishRegisterResponse";
 
 @Injectable({
     providedIn: 'root'
@@ -49,6 +50,23 @@ export class RegisterService {
     reenviarCodigoOTP(email: string): Observable<ResendCodeResponse> {
         return this.http.post<ResendCodeResponse>(`${this.endpoint}/auth/otp/resend`,
             {
+                email: email
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json'
+                }
+            })
+    }
+
+    completarRegistro(email: string, name: string, token: string, telefono: string, boleta?: string): Observable<FinishRegisterResponse> {
+        return this.http.post<FinishRegisterResponse>(`${this.endpoint}/auth/register`,
+            {
+                nombre: name,
+                token: token,
+                telefono: telefono,
+                boleta: boleta,
                 email: email
             },
             {
