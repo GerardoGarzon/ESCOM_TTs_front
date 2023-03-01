@@ -32,6 +32,13 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        let token = localStorage.getItem('token')
+        let isAlumno = localStorage.getItem('isAlumno')
+
+        if ( token != null && isAlumno != null ) {
+            this.router.navigate(['/home'])
+        }
+
         this.crearFormulario()
 
         let success = localStorage.getItem('successRegister')
@@ -73,6 +80,10 @@ export class LoginComponent implements OnInit {
                     this.showSpinner = false
                     if (typeof token.message !== 'undefined') {
                         this.showToastError(token.message)
+                    } else if (typeof token.access_token === "string") {
+                        localStorage.setItem('token', token.access_token)
+                        localStorage.setItem('isAlumno', String(token.isAlumno))
+                        this.router.navigate(['/home'])
                     }
                 });
             }

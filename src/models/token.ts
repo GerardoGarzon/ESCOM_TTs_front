@@ -3,6 +3,7 @@ export class Token {
                 public token_type?: string,
                 public expires_in?: string,
                 public message?: string,
-                public code?: number) {
+                public code?: number,
+                public isAlumno: Boolean = true) {
     }
 }

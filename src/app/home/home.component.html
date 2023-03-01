@@ -1,1 +1,79 @@
-<p>home works!</p>
+<nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home">
+            <img src="assets/logo/logoESCOMBlanco.png" alt="ESCOM" width="80" height="50">
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <i class="fa-solid fa-bars fa-xl"></i>
+        </button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear trabajo terminal</a>
+                </li>
+                <div class="vr px-1"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Buscar trabajo terminal</a>
+                </li>
+                <div class="vr px-1"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profesores</a>
+                </li>
+                <div class="vr px-1"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mi perfil</a>
+                </li>
+
+            </ul>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user fa-lg"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" style="">
+                    <li><a class="dropdown-item disabled">Gerardo Gonzalez Garzon</a></li>
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">ESCOM Trabajos Terminales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center py-3">
+                <img class="pb-3" src="assets/logo/logoESCOMBlanco.png" alt="ESCOM" width="150" height="100">
+                <h5>Gerardo Gonzalez Garzon</h5>
+                <a class="nav-link" (click)="cerrarSesion()">Cerrar sesión</a>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Crear trabajo terminal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Buscar trabajo terminal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profesores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mi perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div *ngIf="showSpinner"
+     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

@@ -40,12 +40,12 @@ const routes: Routes = [
         component: ChangePasswordComponent
     },
     {
-        path: '**',
-        component: NotFoundPageComponent
-    },
-    {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: '**',
+        component: NotFoundPageComponent
     }
 ];
 
