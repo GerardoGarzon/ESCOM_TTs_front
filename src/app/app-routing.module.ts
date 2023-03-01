@@ -9,6 +9,7 @@ import {RequestNewPasswordComponent} from "./request-new-password/request-new-pa
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {HomeComponent} from "./home/home.component";
+import {PasswrodResetEmailComponent} from "./passwrod-reset-email/passwrod-reset-email.component";
 
 const routes: Routes = [
     {
@@ -42,6 +43,10 @@ const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'password/reset/sent',
+        component: PasswrodResetEmailComponent
     },
     {
         path: '**',

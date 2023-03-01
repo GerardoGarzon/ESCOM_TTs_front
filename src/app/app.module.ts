@@ -14,6 +14,7 @@ import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from './home/home.component';
+import {PasswrodResetEmailComponent} from './passwrod-reset-email/passwrod-reset-email.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -32,7 +33,8 @@ export function playerFactory(): any {
         RequestNewPasswordComponent,
         InactiveAccountComponent,
         NotFoundPageComponent,
-        HomeComponent
+        HomeComponent,
+        PasswrodResetEmailComponent
     ],
     imports: [
         BrowserModule,

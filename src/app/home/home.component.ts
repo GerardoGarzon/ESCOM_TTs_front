@@ -9,7 +9,9 @@ import {AuthServiceService} from "../../services/Auth/auth-service.service";
 })
 export class HomeComponent implements OnInit {
     token: string = ''
-    showSpinner: boolean = false
+    showSpinner: boolean = true
+    isProfesor: boolean = true
+    userName: string = ''
 
     constructor(private router: Router,
                 private AuthInjection: AuthServiceService) {
@@ -20,9 +22,21 @@ export class HomeComponent implements OnInit {
         this.token = localStorage.getItem('token')
         let isAlumno = localStorage.getItem('isAlumno')
 
-        if ( this.token == null || isAlumno == null ) {
+        if (this.token == null || isAlumno == null) {
             this.router.navigate(['/'])
         }
+
+        this.AuthInjection.me(this.token).subscribe((meResponse) => {
+            this.showSpinner = false
+            if (meResponse.id === undefined) {
+                localStorage.clear()
+                this.router.navigate(['/'])
+            } else {
+                this.isProfesor = Boolean(meResponse.type)
+                this.userName = meResponse.name
+            }
+        })
+
     }
 
     cerrarSesion() {

@@ -1,0 +1,18 @@
+<div class="vh-100 vw-100 d-flex flex-column align-items-center justify-content-center">
+    <h3 class="text-center">Se envio un correo para recuperar tu contraseña</h3>
+    <div class="d-none d-lg-flex justify-content-center align-items-center">
+        <ng-lottie
+            (animationCreated)="onAnimate($event)"
+            [options]="options"
+            class="w-25">
+        </ng-lottie>
+    </div>
+    <div class="d-flex align-items-center justify-content-center d-lg-none py-3">
+        <ng-lottie
+            (animationCreated)="onAnimate($event)"
+            [options]="options"
+            class="w-50">
+        </ng-lottie>
+    </div>
+    <button class="btn btn-dark" routerLink="/" type="submit">Regresar</button>
+</div>
