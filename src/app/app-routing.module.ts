@@ -10,6 +10,8 @@ import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {HomeComponent} from "./home/home.component";
 import {PasswrodResetEmailComponent} from "./passwrod-reset-email/passwrod-reset-email.component";
+import {ProfesorHomeComponent} from "./home/profesor-home/profesor-home.component";
+import {StudentHomeComponent} from "./home/student-home/student-home.component";
 
 const routes: Routes = [
     {
@@ -42,7 +44,17 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        children: [
+            {
+                path: 'profesor',
+                component: ProfesorHomeComponent
+            },
+            {
+                path: 'alumno',
+                component: StudentHomeComponent
+            }
+        ]
     },
     {
         path: 'password/reset/sent',

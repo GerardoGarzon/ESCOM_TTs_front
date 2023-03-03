@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
                 this.userName = meResponse.name
             }
         })
-
     }
 
     cerrarSesion() {

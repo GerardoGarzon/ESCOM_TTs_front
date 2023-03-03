@@ -22,10 +22,15 @@
                                 <label for="floatingInputEmail">Correo institucional</label>
                             </div>
 
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="floatingPassword" placeholder="Contraseña"
-                                       required type="password" formControlName="password">
-                                <label for="floatingPassword">Contraseña</label>
+                            <div class="input-group mb-3">
+                                <div class="form-floating">
+                                    <input class="form-control" formControlName="new_password" id="floatingPassword"
+                                           placeholder="Contraseña" [type]="isPasswordEnabled ? 'password' : 'text'">
+                                    <label for="floatingPassword">Contraseña</label>
+                                </div>
+                                <span class="input-group-text" (click)="showPassword()">
+                                    <i class="fa-solid" [ngClass]="{' fa-eye-slash': isPasswordEnabled, ' fa-eye': !isPasswordEnabled}" id="togglePassword" style="cursor: pointer"></i>
+                                </span>
                             </div>
 
                             <div class="form-check green form-switch green pb-2">

@@ -15,6 +15,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from './home/home.component';
 import {PasswrodResetEmailComponent} from './passwrod-reset-email/passwrod-reset-email.component';
+import { ProfesorHomeComponent } from './home/profesor-home/profesor-home.component';
+import { StudentHomeComponent } from './home/student-home/student-home.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -34,7 +36,9 @@ export function playerFactory(): any {
         InactiveAccountComponent,
         NotFoundPageComponent,
         HomeComponent,
-        PasswrodResetEmailComponent
+        PasswrodResetEmailComponent,
+        ProfesorHomeComponent,
+        StudentHomeComponent
     ],
     imports: [
         BrowserModule,

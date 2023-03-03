@@ -25,4 +25,20 @@ export class PasswordResetService {
                 }
             })
     }
+
+    cambiarContrasena(token: string, newPassword: string, email: string): Observable<ForgotPasswordResponse> {
+        return this.http.post<ForgotPasswordResponse>(`${this.endpoint}/password/reset`,
+            {
+                email: email,
+                token: token,
+                password: newPassword,
+                password_confirmation: newPassword
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json'
+                }
+            })
+    }
 }

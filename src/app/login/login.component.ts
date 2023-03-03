@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     formularioCreado: FormGroup;
     message: string = ""
     showSpinner: boolean = false
+    isPasswordEnabled: boolean = true
 
     validation_errors: string[] = [
         "Email y/o contraseña incorrectos"
@@ -44,6 +45,12 @@ export class LoginComponent implements OnInit {
         let success = localStorage.getItem('successRegister')
         if (success != null && success == 'true') {
             this.showToastSuccess('Registro exitoso')
+            localStorage.clear()
+        }
+
+        let successPassword = localStorage.getItem('successPasswordChange')
+        if (successPassword != null && successPassword == 'true') {
+            this.showToastSuccess('Cambio de contraseña exitoso')
             localStorage.clear()
         }
     }
@@ -83,7 +90,11 @@ export class LoginComponent implements OnInit {
                     } else if (typeof token.access_token === "string") {
                         localStorage.setItem('token', token.access_token)
                         localStorage.setItem('isAlumno', String(token.isAlumno))
-                        this.router.navigate(['/home'])
+                        if ( token.isAlumno ) {
+                            this.router.navigate(['/home/alumno'])
+                        } else {
+                            this.router.navigate(['/home/profesor'])
+                        }
                     }
                 });
             }
@@ -110,6 +121,10 @@ export class LoginComponent implements OnInit {
         const toastLiveExample = document.getElementById('liveToastSuccess')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
+    }
+
+    showPassword() {
+        this.isPasswordEnabled = !this.isPasswordEnabled
     }
 
 }

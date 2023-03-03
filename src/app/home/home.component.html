@@ -13,6 +13,9 @@
                 <li *ngIf="isProfesor" class="nav-item">
                     <a class="nav-link" href="#">Crear trabajo terminal</a>
                 </li>
+                <li class="nav-item" *ngIf="isProfesor" >
+                    <a class="nav-link" href="#">Activar alumnos</a>
+                </li>
                 <div class="vr px-1"></div>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Buscar trabajo terminal</a>
@@ -52,8 +55,11 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a *ngIf="isProfesor" class="nav-link" href="#">Crear trabajo terminal</a>
+                    <li class="nav-item" *ngIf="isProfesor" >
+                        <a class="nav-link" href="#">Crear trabajo terminal</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isProfesor" >
+                        <a class="nav-link" href="#">Activar alumnos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Buscar trabajo terminal</a>
@@ -77,3 +83,5 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
+
+<router-outlet></router-outlet>

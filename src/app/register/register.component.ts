@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
         'Debes seleccionar un profesor'
     ]
     message: string = ''
-
+    isPasswordEnabled: boolean = true
     constructor(private formBuilder: FormBuilder,
                 private router: Router,
                 private ProfesorsInjection: ProfesorsService,
@@ -96,6 +96,10 @@ export class RegisterComponent implements OnInit {
         const toastLiveExample = document.getElementById('liveToast')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
+    }
+
+    showPassword() {
+        this.isPasswordEnabled = !this.isPasswordEnabled
     }
 
 }
