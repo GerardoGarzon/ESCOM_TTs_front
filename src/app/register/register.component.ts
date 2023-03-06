@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfesorsService} from "../../services/Profesors/profesors.service";
-import {Profesors} from "../../models/profesors";
+import {Profesor} from "../../models/profesor";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {RegisterService} from "../../services/Register/register.service";
@@ -13,7 +13,7 @@ declare var bootstrap: any;
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-    profesores: Array<Profesors> = new Array<Profesors>()
+    profesores: Array<Profesor> = new Array<Profesor>()
     showSpinner: boolean = false
     isAlumno: boolean = true
     // @ts-ignore

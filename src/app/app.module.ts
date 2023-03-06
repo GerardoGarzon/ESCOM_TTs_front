@@ -17,6 +17,8 @@ import {HomeComponent} from './home/home.component';
 import {PasswrodResetEmailComponent} from './passwrod-reset-email/passwrod-reset-email.component';
 import { ProfesorHomeComponent } from './home/profesor-home/profesor-home.component';
 import { StudentHomeComponent } from './home/student-home/student-home.component';
+import { ProfesorDetailComponent } from './home/profesor-detail/profesor-detail.component';
+import { TrabajoDetailComponent } from './home/trabajo-detail/trabajo-detail.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -38,7 +40,9 @@ export function playerFactory(): any {
         HomeComponent,
         PasswrodResetEmailComponent,
         ProfesorHomeComponent,
-        StudentHomeComponent
+        StudentHomeComponent,
+        ProfesorDetailComponent,
+        TrabajoDetailComponent
     ],
     imports: [
         BrowserModule,

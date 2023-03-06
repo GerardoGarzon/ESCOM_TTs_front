@@ -12,6 +12,8 @@ import {HomeComponent} from "./home/home.component";
 import {PasswrodResetEmailComponent} from "./passwrod-reset-email/passwrod-reset-email.component";
 import {ProfesorHomeComponent} from "./home/profesor-home/profesor-home.component";
 import {StudentHomeComponent} from "./home/student-home/student-home.component";
+import {ProfesorDetailComponent} from "./home/profesor-detail/profesor-detail.component";
+import {TrabajoDetailComponent} from "./home/trabajo-detail/trabajo-detail.component";
 
 const routes: Routes = [
     {
@@ -48,11 +50,19 @@ const routes: Routes = [
         children: [
             {
                 path: 'profesor',
-                component: ProfesorHomeComponent
+                component: StudentHomeComponent
             },
             {
                 path: 'alumno',
                 component: StudentHomeComponent
+            },
+            {
+                path: 'profesor/detail/:id',
+                component: ProfesorDetailComponent
+            },
+            {
+                path: 'trabajo/detail/:id',
+                component: TrabajoDetailComponent
             }
         ]
     },

@@ -22,7 +22,7 @@
                 </li>
                 <div class="vr px-1"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profesores</a>
+                    <a class="nav-link" routerLink="/home/profesor">Profesores</a>
                 </li>
                 <div class="vr px-1"></div>
                 <li class="nav-item">
@@ -65,7 +65,7 @@
                         <a class="nav-link" href="#">Buscar trabajo terminal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profesores</a>
+                        <a class="nav-link" routerLink="/home/profesor">Profesores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Mi perfil</a>
@@ -76,6 +76,7 @@
     </div>
 </nav>
 
+<router-outlet></router-outlet>
 
 <div *ngIf="showSpinner"
      class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
@@ -83,5 +84,3 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
-
-<router-outlet></router-outlet>
