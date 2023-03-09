@@ -5,10 +5,58 @@
 </nav>
 
 <div class="container py-4">
-
     <div class="row">
-        <div class="col-4 d-none d-lg-block bg-warning">col-sm-8</div>
-        <div class="col-8 bg-dark">col-sm-4</div>
+        <div class="col-4 d-none d-lg-block">
+            <div class="card" *ngIf="showProfesorInfo">
+                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                    <img src="assets/icons/circle-user-regular.svg" class="card-img-top p-5 h-75 w-75">
+                    <h3 class="card-title fw-bold">{{ profesorDetail.name }}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex align-items-center justify-content-start">
+                        <i class="fa-solid fa-envelope pe-3"></i>
+                        <a href="mailto:{{profesorDetail.email}}" class="link-dark text-decoration-none">{{ profesorDetail.email }}</a>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.phone != null">
+                        <i class="fa-solid fa-phone pe-3"></i>
+                        <a href="tel:{{profesorDetail.phone}}" class="link-dark text-decoration-none">{{ profesorDetail.phone }}</a>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.location != null">
+                        <i class="fa-sharp fa-solid fa-location-dot pe-3"></i>
+                        <div>{{ profesorDetail.location }}</div>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.driveURL != null">
+                        <i class="fa-solid fa-file pe-3"></i>
+                        <a class="link-dark text-decoration-none" href="{{profesorDetail.driveURL}}" target="_blank">{{ profesorDetail.driveURL }}</a>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.githubURL != null">
+                        <i class="fa-brands fa-github pe-3"></i>
+                        <a class="link-dark" text-decoration-none href="{{profesorDetail.githubURL}}" target="_blank">{{ profesorDetail.githubURL }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-lg-8">
+            <div class="vstack gap-3">
+                <h2 class="text-start fw-bold text-dark">Trabajos terminales</h2>
+                <hr>
+                <h4 class="text-center fw-bold text-dark">Activos</h4>
+                <ng-template ngFor let-trabajo [ngForOf]="trabajosActivos">
+                    <app-trabajo-card [titulo]="trabajo.nombre"
+                                      [identificador]="trabajo.identificado"
+                                      [link]="trabajo.id"
+                                      [status]="trabajo.status" >
+                    </app-trabajo-card>
+                </ng-template>
+                <h4 class="text-center fw-bold text-dark">Finalizados</h4>
+                <ng-template ngFor let-trabajo [ngForOf]="trabajosFinalizados">
+                    <app-trabajo-card
+                        [titulo]="trabajo.nombre"
+                        [identificador]="trabajo.identificado" >
+                    </app-trabajo-card>
+                </ng-template>
+            </div>
+        </div>
     </div>
 
 </div>

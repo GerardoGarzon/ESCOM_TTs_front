@@ -1,1 +1,40 @@
-<p>trabajo-detail works!</p>
+<nav class="navbar bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand">Trabajo terminal</a>
+    </div>
+</nav>
+
+<div class="container pt-4">
+    <div class="vstack">
+        <h3 class="fw-bold text-dark">{{ trabajo.name }}</h3>
+        <hr class="my-4">
+        <div class="mb-3">
+            <label for="numeroTrabajoInput" class="form-label fw-semibold text-muted">Numero de trabajo terminal</label>
+            <input type="text" class="form-control py-2 bg-light" id="numeroTrabajoInput" [value]="trabajo.tt_identificador" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="resumenTrabajoInput" class="form-label fw-semibold text-muted">Resumen</label>
+            <textarea class="form-control bg-light" id="resumenTrabajoInput" rows="3" [value]="trabajo.description" disabled></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-semibold text-muted">Alumno (s)</label>
+            <ng-template ngFor let-alumno [ngForOf]="trabajo.alumnos" let-i="index">
+                <input type="text" class="form-control py-2 bg-light my-3" id="alumnoTrabajoInput{{i}}" [value]="alumno.student_name" disabled>
+            </ng-template>
+        </div>
+
+        <div class="mb-3">
+            <label for="enlaceTrabajoInput" class="form-label fw-semibold text-muted">Enlace a documentación</label>
+            <input type="text" class="form-control py-2 bg-light" id="enlaceTrabajoInput" [value]="trabajo.link" disabled>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showSpinner"
+     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

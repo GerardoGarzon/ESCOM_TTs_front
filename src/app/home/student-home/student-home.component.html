@@ -74,13 +74,13 @@
                 <ul class="list-group list-group-flush d-flex justify-content-center">
                     <li class="list-group-item">
                         <i class="fa-solid fa-envelope me-3"></i>
-                        <a class="card-text link-dark py-3" href="mailto:{{profesor.email}}">{{ profesor.email }}</a>
+                        <a class="card-text link-dark py-3 text-decoration-none" href="mailto:{{profesor.email}}">{{ profesor.email }}</a>
                     </li>
                     <li class="list-group-item">
                         <i class="fa-solid fa-phone me-3"></i>
-                        <span class="py-3">{{ profesor.phone }}</span>
+                        <a class="py-3 link-dark text-decoration-none" href="tel:{{profesor.phone}}">{{ profesor.phone }}</a>
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item" *ngIf="profesor.location != null">
                         <i class="fa-solid fa-location-dot me-3"></i>
                         {{ profesor.location }}
                     </li>

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     showSpinner: boolean = true
     isProfesor: boolean = true
     userName: string = ''
+    homePath: string = '/home'
 
     constructor(private router: Router,
                 private AuthInjection: AuthServiceService) {
@@ -34,6 +35,12 @@ export class HomeComponent implements OnInit {
             } else {
                 this.isProfesor = Boolean(meResponse.type)
                 this.userName = meResponse.name
+
+                if (this.isProfesor) {
+                    this.homePath = '/home/profesor'
+                } else {
+                    this.homePath = '/home/alumno'
+                }
             }
         })
     }

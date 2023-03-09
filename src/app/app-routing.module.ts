@@ -14,6 +14,7 @@ import {ProfesorHomeComponent} from "./home/profesor-home/profesor-home.componen
 import {StudentHomeComponent} from "./home/student-home/student-home.component";
 import {ProfesorDetailComponent} from "./home/profesor-detail/profesor-detail.component";
 import {TrabajoDetailComponent} from "./home/trabajo-detail/trabajo-detail.component";
+import {ActivateAccountComponent} from "./home/activate-account/activate-account.component";
 
 const routes: Routes = [
     {
@@ -63,6 +64,10 @@ const routes: Routes = [
             {
                 path: 'trabajo/detail/:id',
                 component: TrabajoDetailComponent
+            },
+            {
+                path: 'activar/alumno',
+                component: ActivateAccountComponent
             }
         ]
     },

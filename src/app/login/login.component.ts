@@ -82,6 +82,7 @@ export class LoginComponent implements OnInit {
                 this.showToastError()
             } else {
                 this.showSpinner = true
+                this.isPasswordEnabled = true
                 this.AuthInyectado.login(this.formularioCreado.controls['email'].value,
                     this.formularioCreado.controls['password'].value).subscribe((token) => {
                     this.showSpinner = false
@@ -89,6 +90,7 @@ export class LoginComponent implements OnInit {
                         this.showToastError(token.message)
                     } else if (typeof token.access_token === "string") {
                         localStorage.setItem('token', token.access_token)
+                        localStorage.setItem('userEmail', this.formularioCreado.controls['email'].value)
                         localStorage.setItem('isAlumno', String(token.isAlumno))
                         if ( token.isAlumno ) {
                             this.router.navigate(['/home/alumno'])

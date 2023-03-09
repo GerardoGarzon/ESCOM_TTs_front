@@ -1,6 +1,6 @@
-<nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
+<nav class="navbar bg_escom navbar-expand-lg" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand" routerLink="/home">
+        <a class="navbar-brand" routerLink="{{this.homePath}}">
             <img src="assets/logo/logoESCOMBlanco.png" alt="ESCOM" width="80" height="50">
         </a>
 
@@ -8,27 +8,27 @@
             <i class="fa-solid fa-bars fa-xl"></i>
         </button>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" *ngIf="!showSpinner">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li *ngIf="isProfesor" class="nav-item">
                     <a class="nav-link" href="#">Crear trabajo terminal</a>
                 </li>
+                <div class="vr mx-1 py-0"></div>
                 <li class="nav-item" *ngIf="isProfesor" >
-                    <a class="nav-link" href="#">Activar alumnos</a>
+                    <a class="nav-link" routerLink="/home/activar/alumno">Activar alumnos</a>
                 </li>
-                <div class="vr px-1"></div>
+                <div class="vr mx-1 py-0"></div>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Buscar trabajo terminal</a>
                 </li>
-                <div class="vr px-1"></div>
+                <div class="vr mx-1 py-0"></div>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/home/profesor">Profesores</a>
                 </li>
-                <div class="vr px-1"></div>
+                <div class="vr mx-1 py-0"></div>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mi perfil</a>
                 </li>
-
             </ul>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,4 +83,59 @@
     <div class="spinner-border text-light" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
+</div>
+
+<div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5 border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <img src="assets/logo/escudoESCOM.png" style="width: 75px">
+            </a>
+        </div>
+
+        <div class="col mb-3">
+
+        </div>
+
+        <div class="col mb-3">
+            <h5>Escuela</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pagina ESCOM</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">SAES</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CATT</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Servicio social</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Posgrado</a></li>
+            </ul>
+        </div>
+
+        <div class="col mb-3">
+            <h5>Redes sociales</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-facebook text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">ESCOM IPN MX</a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-square-twitter text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">ESCOMUNIDAD</a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-facebook text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">Becas ESCOM</a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-facebook text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">Servicio social ESCOM</a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-facebook text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">Red de genero ESCOM</a>
+                </li>
+                <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
+                    <i class="fa-brands fa-facebook text-muted pe-2"></i>
+                    <a href="#" class="nav-link p-0 text-muted">Bolsa de trabajo ESCOM</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </div>

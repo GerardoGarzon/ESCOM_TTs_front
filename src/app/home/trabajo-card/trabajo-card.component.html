@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body d-flex align-items-center">
+        <div class="flex-fill">
+            <h5 class="card-title pe-1">{{ titulo }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted d-flex align-items-center my-1">
+                {{ identificador }}
+                <div class="vr mx-2" style="width: 1.5px;"></div>
+                {{ this.statusString }}
+            </h6>
+        </div>
+        <div>
+            <a routerLink="/home/trabajo/detail/{{link}}">
+                <i class="fa-solid fa-circle-chevron-right fa-2xl me-2" style="cursor: pointer"></i>
+            </a>
+        </div>
+    </div>
+</div>

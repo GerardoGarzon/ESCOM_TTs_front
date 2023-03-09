@@ -19,6 +19,8 @@ import { ProfesorHomeComponent } from './home/profesor-home/profesor-home.compon
 import { StudentHomeComponent } from './home/student-home/student-home.component';
 import { ProfesorDetailComponent } from './home/profesor-detail/profesor-detail.component';
 import { TrabajoDetailComponent } from './home/trabajo-detail/trabajo-detail.component';
+import { TrabajoCardComponent } from './home/trabajo-card/trabajo-card.component';
+import { ActivateAccountComponent } from './home/activate-account/activate-account.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -42,7 +44,9 @@ export function playerFactory(): any {
         ProfesorHomeComponent,
         StudentHomeComponent,
         ProfesorDetailComponent,
-        TrabajoDetailComponent
+        TrabajoDetailComponent,
+        TrabajoCardComponent,
+        ActivateAccountComponent
     ],
     imports: [
         BrowserModule,
