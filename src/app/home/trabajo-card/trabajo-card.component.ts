@@ -10,6 +10,8 @@ export class TrabajoCardComponent implements OnInit {
     @Input() identificador: string = ""
     @Input() status: number = 0
     @Input() link: number = 1
+    @Input() edit: boolean = false
+
 
     statusString: string = ''
 

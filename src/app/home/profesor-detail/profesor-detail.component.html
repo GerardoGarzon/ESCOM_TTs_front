@@ -1,8 +1,50 @@
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar bg-body-tertiary d-none d-lg-block">
     <div class="container">
         <a class="navbar-brand">Profesor</a>
     </div>
 </nav>
+
+<div class="accordion accordion-flush d-lg-none mb-4" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Profesor
+            </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <div class="card" *ngIf="showProfesorInfo">
+                    <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                        <img src="assets/icons/circle-user-regular.svg" class="card-img-top p-5" style="width: 250px">
+                        <h5 class="card-title fw-bold">{{ profesorDetail.name }}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center justify-content-start">
+                            <i class="fa-solid fa-envelope pe-3"></i>
+                            <a href="mailto:{{profesorDetail.email}}" class="link-dark text-decoration-none">{{ profesorDetail.email }}</a>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.phone != null">
+                            <i class="fa-solid fa-phone pe-3"></i>
+                            <a href="tel:{{profesorDetail.phone}}" class="link-dark text-decoration-none">{{ profesorDetail.phone }}</a>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.location != null">
+                            <i class="fa-sharp fa-solid fa-location-dot pe-3"></i>
+                            <div>{{ profesorDetail.location }}</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.driveURL != null">
+                            <i class="fa-solid fa-file pe-3"></i>
+                            <a class="link-dark text-decoration-none" href="{{profesorDetail.driveURL}}" target="_blank">{{ profesorDetail.driveURL }}</a>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center justify-content-start" *ngIf="profesorDetail.githubURL != null">
+                            <i class="fa-brands fa-github pe-3"></i>
+                            <a class="link-dark text-decoration-none"  href="{{profesorDetail.githubURL}}" target="_blank">{{ profesorDetail.githubURL }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container py-4">
     <div class="row">

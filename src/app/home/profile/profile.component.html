@@ -92,14 +92,20 @@
         </div>
         <div class="col-12 col-lg-8">
             <div class="vstack gap-3">
-                <h2 class="text-start fw-bold text-dark">Trabajos terminales</h2>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h2 class="text-start fw-bold text-dark">Trabajos terminales</h2>
+                    <a class="text-decoration-none link-dark">
+                        <i class="fa-solid fa-plus fa-xl"></i>
+                    </a>
+                </div>
                 <hr>
                 <h4 class="text-center fw-bold text-dark">Activos</h4>
                 <ng-template ngFor let-trabajo [ngForOf]="trabajosActivos">
                     <app-trabajo-card [titulo]="trabajo.nombre"
                                       [identificador]="trabajo.identificado"
                                       [link]="trabajo.id"
-                                      [status]="trabajo.status" >
+                                      [status]="trabajo.status"
+                                      [edit]="true" >
                     </app-trabajo-card>
                 </ng-template>
                 <h5 *ngIf="trabajosActivos.length == 0" class="fw-bold text-muted text-center py-5">Sin trabajos activos</h5>
@@ -107,7 +113,10 @@
                 <ng-template ngFor let-trabajo [ngForOf]="trabajosFinalizados">
                     <app-trabajo-card
                         [titulo]="trabajo.nombre"
-                        [identificador]="trabajo.identificado" >
+                        [identificador]="trabajo.identificado"
+                        [link]="trabajo.id"
+                        [status]="trabajo.status"
+                        [edit]="true"  >
                     </app-trabajo-card>
                 </ng-template>
                 <h5 *ngIf="trabajosFinalizados.length == 0" class="fw-bold text-muted text-center py-5">Sin trabajos finalizados</h5>

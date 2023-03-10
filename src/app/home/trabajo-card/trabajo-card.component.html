@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="card-body d-flex align-items-center">
-        <div class="flex-fill">
+    <div class="card-body d-flex align-items-center justify-content-between">
+        <div class="col-9 col-lg-11">
             <h5 class="card-title pe-1">{{ titulo }}</h5>
             <h6 class="card-subtitle mb-2 text-muted d-flex align-items-center my-1">
                 {{ identificador }}
@@ -8,9 +8,12 @@
                 {{ this.statusString }}
             </h6>
         </div>
-        <div>
+        <div class="col-3 col-lg-1 text-center">
+            <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="edit">
+                <i class="fa-solid fa-square-pen fa-xl me-2" style="cursor: pointer"></i>
+            </a>
             <a routerLink="/home/trabajo/detail/{{link}}">
-                <i class="fa-solid fa-circle-chevron-right fa-2xl me-2" style="cursor: pointer"></i>
+                <i class="fa-solid fa-circle-chevron-right fa-xl me-2" style="cursor: pointer"></i>
             </a>
         </div>
     </div>

@@ -37,10 +37,12 @@ export class TrabajoDetailComponent implements OnInit {
         this.TrabajoInjection.obtenerTrabajoTerminal(this.trabajoId, this.token).subscribe((trabajoResponse) => {
             if (trabajoResponse.code == 200) {
                 this.trabajo = trabajoResponse.data
+                this.showSpinner = false
             } else {
                 this.router.navigate(['..'])
+                this.showSpinner = false
             }
-            this.showSpinner = false
+
         }, (error) => {
             this.router.navigate(['..'])
             this.showSpinner = false
