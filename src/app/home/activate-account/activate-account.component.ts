@@ -16,6 +16,7 @@ export class ActivateAccountComponent implements OnInit {
     token: string = ''
     email: string = ''
     message: string = ''
+    selectAll: boolean = false
 
 
     constructor(private activeRouter: ActivatedRoute,
@@ -24,7 +25,6 @@ export class ActivateAccountComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        debugger
         // @ts-ignore
         this.token = localStorage.getItem('token')
         // @ts-ignore
@@ -82,6 +82,10 @@ export class ActivateAccountComponent implements OnInit {
             }
             this.showSpinner = false
         })
+    }
+
+    seleccionarTodos() {
+        this.selectAll = !this.selectAll
     }
 
     showToastError(errorMessage: string) {

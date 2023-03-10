@@ -48,6 +48,7 @@
                                       [status]="trabajo.status" >
                     </app-trabajo-card>
                 </ng-template>
+                <h5 *ngIf="trabajosActivos.length == 0" class="fw-bold text-muted text-center py-5">Sin trabajos activos</h5>
                 <h4 class="text-center fw-bold text-dark">Finalizados</h4>
                 <ng-template ngFor let-trabajo [ngForOf]="trabajosFinalizados">
                     <app-trabajo-card
@@ -55,6 +56,7 @@
                         [identificador]="trabajo.identificado" >
                     </app-trabajo-card>
                 </ng-template>
+                <h5 *ngIf="trabajosFinalizados.length == 0" class="fw-bold text-muted text-center py-5">Sin trabajos finalizados</h5>
             </div>
         </div>
     </div>

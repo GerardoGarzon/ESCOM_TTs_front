@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
                 this.router.navigate(['/'])
             } else {
                 this.isProfesor = Boolean(meResponse.type)
+                localStorage.setItem('userId', String(meResponse.id))
                 this.userName = meResponse.name
 
                 if (this.isProfesor) {

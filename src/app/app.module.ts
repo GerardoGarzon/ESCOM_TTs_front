@@ -21,6 +21,7 @@ import { ProfesorDetailComponent } from './home/profesor-detail/profesor-detail.
 import { TrabajoDetailComponent } from './home/trabajo-detail/trabajo-detail.component';
 import { TrabajoCardComponent } from './home/trabajo-card/trabajo-card.component';
 import { ActivateAccountComponent } from './home/activate-account/activate-account.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -46,7 +47,8 @@ export function playerFactory(): any {
         ProfesorDetailComponent,
         TrabajoDetailComponent,
         TrabajoCardComponent,
-        ActivateAccountComponent
+        ActivateAccountComponent,
+        ProfileComponent
     ],
     imports: [
         BrowserModule,

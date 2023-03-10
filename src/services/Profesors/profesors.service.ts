@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Profesor, ProfesorsResponse} from "../../models/profesor";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {ActivateUserResponse} from "../Responses/ActivateUserResponse";
 
 @Injectable({
     providedIn: 'root'
@@ -28,6 +29,20 @@ export class ProfesorsService {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                     'Accept': 'application/json'
+                }
+            })
+    }
+
+    agregarLink(tipo: string, url: string, token: string) {
+        return this.http.post<ActivateUserResponse>(`${this.endpoint}/add/${tipo}URL`,
+            {
+                url: url
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             })
     }

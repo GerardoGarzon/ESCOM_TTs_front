@@ -22,8 +22,5 @@ export class StudentHomeComponent implements OnInit {
             this.showSpinner = false
             this.profesorsReady = true
         })
-
     }
-
-
 }
