@@ -22,8 +22,8 @@ import { TrabajoDetailComponent } from './home/trabajo-detail/trabajo-detail.com
 import { TrabajoCardComponent } from './home/trabajo-card/trabajo-card.component';
 import { ActivateAccountComponent } from './home/activate-account/activate-account.component';
 import { ProfileComponent } from './home/profile/profile.component';
-import { CreateTrabajoComponent } from './create-trabajo/create-trabajo.component';
-import { EditTrabajoComponent } from './edit-trabajo/edit-trabajo.component';
+import { CreateTrabajoComponent } from './home/create-trabajo/create-trabajo.component';
+import { EditTrabajoComponent } from './home/edit-trabajo/edit-trabajo.component';
 
 // Export this function
 export function playerFactory(): any {

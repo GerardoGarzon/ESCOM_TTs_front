@@ -12,9 +12,56 @@
             <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="edit">
                 <i class="fa-solid fa-square-pen fa-xl me-2" style="cursor: pointer"></i>
             </a>
-            <a routerLink="/home/trabajo/detail/{{link}}">
+            <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="!edit">
                 <i class="fa-solid fa-circle-chevron-right fa-xl me-2" style="cursor: pointer"></i>
             </a>
+            <a data-bs-toggle="modal" data-bs-target="#modalDelete" *ngIf="edit">
+                <i class="fa-solid fa-trash-can fa-xl me-2" style="cursor: pointer"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDeleteLabel">Eliminar</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estas seguro que deseas eliminar el trabajo terminal?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminarTrabajoTerminal()" data-bs-dismiss="modal">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0"
+         id="liveToast" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ this.message }}
+            </div>
+            <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    type="button"></button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-success border-0"
+         id="liveToastSuccess" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ this.message }}
+            </div>
+            <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    type="button"></button>
         </div>
     </div>
 </div>

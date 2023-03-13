@@ -79,4 +79,13 @@ export class ProfileComponent implements OnInit {
 
         })
     }
+
+    removeFromList(event: any) {
+        this.trabajosActivos = this.trabajosActivos.filter((value) => {
+            return value.id != event
+        })
+        this.trabajosFinalizados = this.trabajosFinalizados.filter((value) => {
+            return value.id != event
+        })
+    }
 }

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Trabajo, TrabajosProfesorResponse} from "../Responses/TrabajosProfesorResponse";
 import {TrabajoTerminalResponse} from "../Responses/TrabajoTerminalResponse";
+import {GeneralResponse} from "../Responses/GeneralResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,41 @@ export class TrabajosService {
             })
     }
 
+    eliminarTrabajoTerminale(id: number, token: string): Observable<GeneralResponse> {
+        return this.http.delete<GeneralResponse>(`${this.endpoint}/trabajo`,
+            {
+                body: {
+                    tt_id: id
+                },
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
+
     obtenerTrabajoTerminal(id: number, token: string): Observable<TrabajoTerminalResponse> {
         return this.http.get<TrabajoTerminalResponse>(`${this.endpoint}/trabajo/${id}`,
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
+
+    crearTrabajoTerminal(nombre: string, descripcion: string, link: string, numero: string, alumnos: Array<string>, token: string): Observable<GeneralResponse> {
+        return this.http.post<GeneralResponse>(`${this.endpoint}/trabajo`,
+            {
+                nombre,
+                descripcion,
+                tipo: 0,
+                link,
+                numero,
+                alumnos
+            },
             {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
