@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body d-flex align-items-center justify-content-between">
-        <div class="col-9 col-lg-11">
+        <div class="col-8 col-lg-10">
             <h5 class="card-title pe-1">{{ titulo }}</h5>
             <h6 class="card-subtitle mb-2 text-muted d-flex align-items-center my-1">
                 {{ identificador }}
@@ -8,19 +8,32 @@
                 {{ this.statusString }}
             </h6>
         </div>
-        <div class="col-3 col-lg-1 text-center">
-            <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="edit">
+        <div class="col-4 col-lg-2 text-center">
+            <a class="text-decoration-none" [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#modalAgregar'+ id" *ngIf="edit">
+                <i class="fa-solid fa-square-plus fa-xl me-2" style="cursor: pointer"></i>
+            </a>
+            <a [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#modalActualizar'+ id" *ngIf="edit">
                 <i class="fa-solid fa-square-pen fa-xl me-2" style="cursor: pointer"></i>
             </a>
             <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="!edit">
                 <i class="fa-solid fa-circle-chevron-right fa-xl me-2" style="cursor: pointer"></i>
             </a>
             <a data-bs-toggle="modal" data-bs-target="#modalDelete" *ngIf="edit">
-                <i class="fa-solid fa-trash-can fa-xl me-2" style="cursor: pointer"></i>
+                <i class="fa-solid fa-square-minus fa-xl me-2" style="cursor: pointer"></i>
             </a>
         </div>
     </div>
 </div>
+
+<app-add-student-trabajo
+    [id]="id"
+    [titulo]="identificador">
+</app-add-student-trabajo>
+
+<app-update-trabajo
+    [id]="id">
+
+</app-update-trabajo>
 
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

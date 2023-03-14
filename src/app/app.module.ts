@@ -24,6 +24,8 @@ import { ActivateAccountComponent } from './home/activate-account/activate-accou
 import { ProfileComponent } from './home/profile/profile.component';
 import { CreateTrabajoComponent } from './home/create-trabajo/create-trabajo.component';
 import { EditTrabajoComponent } from './home/edit-trabajo/edit-trabajo.component';
+import { AddStudentTrabajoComponent } from './home/add-student-trabajo/add-student-trabajo.component';
+import { UpdateTrabajoComponent } from './home/update-trabajo/update-trabajo.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -52,7 +54,9 @@ export function playerFactory(): any {
         ActivateAccountComponent,
         ProfileComponent,
         CreateTrabajoComponent,
-        EditTrabajoComponent
+        EditTrabajoComponent,
+        AddStudentTrabajoComponent,
+        UpdateTrabajoComponent
     ],
     imports: [
         BrowserModule,

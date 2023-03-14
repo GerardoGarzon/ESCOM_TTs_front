@@ -1,36 +1,19 @@
-<div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+<div class="modal fade" id="modalAgregar{{id}}" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalCrearLabel">Crear trabajo terminal</h1>
+                <h1 class="modal-title fs-5" id="modalAgregarLabel">Agregar alumno</h1>
                 <button type="button" #closeButton class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetView()"></button>
             </div>
             <div class="modal-body">
+                <h5>Trabajo terminal: {{ titulo }}</h5>
                 <form [formGroup]="formularioCreado">
-                    <div class="form-floating mb-3">
-                        <input type="text" formControlName="identificador" class="form-control" id="floatingNumero" placeholder="Numero de trabajo">
-                        <label for="floatingNumero">Numero de trabajo</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" formControlName="nombre" class="form-control" id="floatingInput" placeholder="Nombre del trabajo terminal">
-                        <label for="floatingInput">Nombre</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" formControlName="descripcion" id="floatingDescripcion" rows="3" placeholder="Descripcion"></textarea>
-                        <label for="floatingDescripcion">Descripcion</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" formControlName="link" id="floatingLink" placeholder="Documentos (URL)">
-                        <label for="floatingLink">Documentos (URL)</label>
-                    </div>
-                    <hr>
-
                     <div formArrayName="alumnos">
                         <ng-container *ngFor="let alumno of getControls('alumnos', formularioCreado)?.controls; index as i">
                             <div class="d-flex align-items-center">
                                 <div class="form-floating my-2 flex-fill" formGroupName="{{i}}">
                                     <input type="text" class="form-control" id="floatingAlumno{{i}}" placeholder="Alumno {{i + 1}}"  formControlName="alumno">
-                                    <label for="floatingLink">Alumno {{i + 1}}</label>
+                                    <label for="floatingAlumno{{i}}">Alumno {{i + 1}}</label>
                                 </div>
                                 <i class="fa-solid fa-trash-can mx-2" style="cursor:pointer;" *ngIf="i > 0" (click)="deleteRow(i)"></i>
                             </div>
@@ -44,7 +27,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetView()">Cerrar</button>
-                <button type="button" class="btn btn-success" (click)="crearTrabajo()" >Guardar</button>
+                <button type="button" class="btn btn-success" (click)="actualizarTrabajo()" >Guardar</button>
             </div>
         </div>
     </div>

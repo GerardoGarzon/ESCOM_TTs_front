@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
+<div class="modal fade" id="modalActualizar{{id}}" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -23,23 +23,13 @@
                         <input type="text" class="form-control" formControlName="link" id="floatingLink" placeholder="Documentos (URL)">
                         <label for="floatingLink">Documentos (URL)</label>
                     </div>
-                    <hr>
 
-                    <div formArrayName="alumnos">
-                        <ng-container *ngFor="let alumno of getControls('alumnos', formularioCreado)?.controls; index as i">
-                            <div class="d-flex align-items-center">
-                                <div class="form-floating my-2 flex-fill" formGroupName="{{i}}">
-                                    <input type="text" class="form-control" id="floatingAlumno{{i}}" placeholder="Alumno {{i + 1}}"  formControlName="alumno">
-                                    <label for="floatingLink">Alumno {{i + 1}}</label>
-                                </div>
-                                <i class="fa-solid fa-trash-can mx-2" style="cursor:pointer;" *ngIf="i > 0" (click)="deleteRow(i)"></i>
-                            </div>
-                        </ng-container>
-                    </div>
-                    <hr>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <i class="fa-solid fa-circle-plus fa-xl m-2" style="cursor: pointer" (click)="agregarNuevoAlumno()"></i>
-                    </div>
+                    <select class="form-select form-select mb-3" formControlName="tipoTrabajo">
+                        <option selected disabled [ngValue]="null">Estatus</option>
+                        <option *ngFor="let valor of opcionesTrabajoTerminal" [ngValue]="valor.value">
+                            {{ valor.desc }}
+                        </option>
+                    </select>
                 </form>
             </div>
             <div class="modal-footer">

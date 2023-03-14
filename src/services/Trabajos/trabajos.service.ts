@@ -68,4 +68,41 @@ export class TrabajosService {
                 }
             })
     }
+
+    agregarAlumnoTrabajo(tt_id: number, alumnos: Array<string>, token: string): Observable<GeneralResponse> {
+        return this.http.put<GeneralResponse>(`${this.endpoint}/trabajo/new/student`,
+            {
+                tt_id,
+                alumnos
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
+
+    actualizarTrabajoTerminal(tt_id: number, nombre: string, descripcion: string, link: string, token: string): Observable<GeneralResponse> {
+        return this.http.put<GeneralResponse>(`${this.endpoint}/trabajo`,
+            {
+                tt_id,
+                nombre,
+                descripcion,
+                tipo: 0,
+                link,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
+
+    eliminarAlumnoTrabajo() {
+
+    }
 }
