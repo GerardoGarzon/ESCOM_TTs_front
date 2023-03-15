@@ -12,8 +12,8 @@ declare var bootstrap: any;
 })
 export class UpdateTrabajoComponent {
     // @ts-ignore
-    @ViewChild('closeButton') closebutton
-    @Output() agregadoExitosamente = new EventEmitter()
+    @ViewChild('closeButtonUpdate') closebutton
+    @Output() actualizadoExitosamente = new EventEmitter()
     @Input() id: number = 0
     @Input() identificador: string = ''
     @Input() nombre: string = ''
@@ -99,7 +99,7 @@ export class UpdateTrabajoComponent {
                 link: [ this.trabajo.link, Validators.compose([
                     Validators.required
                 ])],
-                tipoTrabajo: [ this.trabajo.status, Validators.compose([
+                tipoTrabajo: [ this.trabajo.type, Validators.compose([
                     Validators.required
                 ])]
             })
@@ -116,15 +116,15 @@ export class UpdateTrabajoComponent {
             let nombre = this.formularioCreado.controls['nombre'].value
             let descripcion = this.formularioCreado.controls['descripcion'].value
             let link = this.formularioCreado.controls['link'].value
-            let numero = this.formularioCreado.controls['identificador'].value
+            let tipo = this.formularioCreado.controls['tipoTrabajo'].value
 
-            this.TrabajoInjection.crearTrabajoTerminal(nombre, descripcion, link, numero, alumnos, this.token).subscribe((response) => {
+            this.TrabajoInjection.actualizarTrabajoTerminal(this.id, nombre, descripcion, link, tipo, this.token).subscribe((response) => {
                 if (response.code == 201) {
                     this.showToastSuccess(response.message)
-                    this.agregadoExitosamente.emit()
+                    this.actualizadoExitosamente.emit()
                     this.closebutton.nativeElement.click();
                 } else {
-                    this.showToastError(response.message)
+                    this.showToastSuccess(response.message)
                 }
             }, (error) => {
                 this.showToastError('Ocurrio un error, intente nuevamente')
@@ -136,14 +136,14 @@ export class UpdateTrabajoComponent {
 
     showToastError(errorMessage: string) {
         this.message = errorMessage
-        const toastLiveExample = document.getElementById('addTrabajoToastError')
+        const toastLiveExample = document.getElementById('updateTrabajoToastError')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
     }
 
     showToastSuccess(successMessage: string) {
         this.message = successMessage
-        const toastLiveExample = document.getElementById('addTrabajoToastSuccess')
+        const toastLiveExample = document.getElementById('updateTrabajoToastSuccess')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
     }

@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalCrearLabel">Crear trabajo terminal</h1>
-                <button type="button" #closeButton class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetView()"></button>
+                <button type="button" #closeButtonUpdate class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetView()"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="formularioCreado">
@@ -34,7 +34,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetView()">Cerrar</button>
-                <button type="button" class="btn btn-success" (click)="crearTrabajo()" >Guardar</button>
+                <button type="button" class="btn btn-success" (click)="actualizarTrabajo()" >Guardar</button>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
 
 <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
     <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0"
-         id="addTrabajoToastError" role="alert">
+         id="updateTrabajoToastError" role="alert">
         <div class="d-flex">
             <div class="toast-body">
                 {{ this.message }}
@@ -55,7 +55,7 @@
 
 <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
     <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-success border-0"
-         id="addTrabajoToastSuccess" role="alert">
+         id="updateTrabajoToastSuccess" role="alert">
         <div class="d-flex">
             <div class="toast-body">
                 {{ this.message }}

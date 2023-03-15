@@ -31,8 +31,8 @@
 </app-add-student-trabajo>
 
 <app-update-trabajo
-    [id]="id">
-
+    [id]="id"
+    (actualizadoExitosamente)="this.actualizarLista.emit()">
 </app-update-trabajo>
 
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">

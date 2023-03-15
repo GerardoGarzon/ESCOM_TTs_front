@@ -4,9 +4,9 @@
     </div>
 </nav>
 
-<div class="container pt-4">
+<div class="container pt-4" *ngIf="trabajoLoaded">
     <div class="vstack">
-        <h3 class="fw-bold text-dark">{{ trabajo.name }}</h3>
+        <h3 class="fw-bold text-dark">{{ trabajo.name || '' }}</h3>
         <hr class="my-4">
         <div class="mb-3">
             <label for="numeroTrabajoInput" class="form-label fw-semibold text-muted">Numero de trabajo terminal</label>

@@ -10,6 +10,7 @@ import {TrabajoTerminal, TrabajoTerminalResponse} from "../../../services/Respon
 })
 export class TrabajoDetailComponent implements OnInit {
     showSpinner: boolean = false
+    trabajoLoaded: boolean = false
     trabajoId: number = 0
     token: string = ''
     // @ts-ignore
@@ -38,6 +39,7 @@ export class TrabajoDetailComponent implements OnInit {
             if (trabajoResponse.code == 200) {
                 this.trabajo = trabajoResponse.data
                 this.showSpinner = false
+                this.trabajoLoaded = true
             } else {
                 this.router.navigate(['..'])
                 this.showSpinner = false

@@ -17,6 +17,7 @@ export class TrabajoCardComponent implements OnInit {
     @Input() link: number = 1
     @Input() edit: boolean = false
     @Output() eliminadoExitosamente = new EventEmitter()
+    @Output() actualizarLista = new EventEmitter()
 
     token: string = ''
 
@@ -28,6 +29,7 @@ export class TrabajoCardComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(this.status)
         if (this.status == 0) {
             this.statusString = 'Protocolo'
         } else if (this.status == 1) {

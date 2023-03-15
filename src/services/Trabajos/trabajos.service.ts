@@ -84,13 +84,13 @@ export class TrabajosService {
             })
     }
 
-    actualizarTrabajoTerminal(tt_id: number, nombre: string, descripcion: string, link: string, token: string): Observable<GeneralResponse> {
+    actualizarTrabajoTerminal(tt_id: number, nombre: string, descripcion: string, link: string, tipo: number, token: string): Observable<GeneralResponse> {
         return this.http.put<GeneralResponse>(`${this.endpoint}/trabajo`,
             {
                 tt_id,
                 nombre,
                 descripcion,
-                tipo: 0,
+                tipo,
                 link,
             },
             {
