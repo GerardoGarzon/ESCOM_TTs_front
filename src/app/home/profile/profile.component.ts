@@ -55,6 +55,8 @@ export class ProfileComponent implements OnInit {
     }
 
     obtenerTrabajosProfesor() {
+        console.log('Actualizar vista')
+        this.showSpinner = true
         this.TrabajosInjection.obtenerTrabajosTerminales(this.id, this.token).subscribe((trabajosResponse) => {
             if (trabajosResponse.code == 200) {
                 this.trabajosActivos = trabajosResponse.data.filter((value) => {

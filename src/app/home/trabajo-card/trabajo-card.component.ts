@@ -77,4 +77,9 @@ export class TrabajoCardComponent implements OnInit {
         toast.show()
     }
 
+    updateListView() {
+        console.log('Actualizar vista')
+        this.actualizarLista.emit()
+    }
+
 }

@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <form [formGroup]="formularioCreado">
                     <div class="form-floating mb-3">
-                        <input type="text" formControlName="identificador" class="form-control" id="floatingNumero" placeholder="Numero de trabajo">
+                        <input formControlName="identificador" class="form-control" id="floatingNumero" readonly >
                         <label for="floatingNumero">Numero de trabajo</label>
                     </div>
                     <div class="form-floating mb-3">
@@ -30,6 +30,20 @@
                             {{ valor.desc }}
                         </option>
                     </select>
+
+                    <hr>
+
+                    <ng-template ngFor let-alumno [ngForOf]="trabajo.alumnos" let-i=index>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-floating my-2 flex-fill">
+                                <input type="text" class="form-control" id="floatingAlumno{{i}}" [value]="alumno.student_name">
+                                <label for="floatingAlumno{{i}}">Alumno {{i + 1}}</label>
+                            </div>
+                            <a class="text-decoration-none" (click)="eliminarAlumno(alumno.id, alumno.tt_id)">
+                                <i class="fa-solid fa-square-minus fa-xl mx-2"></i>
+                            </a>
+                        </div>
+                    </ng-template>
                 </form>
             </div>
             <div class="modal-footer">

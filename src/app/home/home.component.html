@@ -10,10 +10,6 @@
 
         <div class="collapse navbar-collapse" *ngIf="!showSpinner">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li *ngIf="isProfesor" class="nav-item">
-                    <a class="nav-link" href="#">Crear trabajo terminal</a>
-                </li>
-                <div class="vr mx-1 py-0"></div>
                 <li class="nav-item" *ngIf="isProfesor" >
                     <a class="nav-link" routerLink="/home/activar/alumno">Activar alumnos</a>
                 </li>
@@ -55,19 +51,16 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item" *ngIf="isProfesor" >
-                        <a class="nav-link" href="#">Crear trabajo terminal</a>
-                    </li>
-                    <li class="nav-item" *ngIf="isProfesor" >
+                    <li class="nav-item" *ngIf="isProfesor" data-bs-dismiss="offcanvas" >
                         <a class="nav-link" routerLink="/home/activar/alumno">Activar alumnos</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas">
                         <a class="nav-link" href="#">Buscar trabajo terminal</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas">
                         <a class="nav-link" routerLink="/home/profesor">Profesores</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas">
                         <a class="nav-link" routerLink="/home/profile">Mi perfil</a>
                     </li>
                 </ul>
@@ -93,11 +86,11 @@
         <div class="col mb-3">
             <h5>Escuela</h5>
             <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pagina ESCOM</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">SAES</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CATT</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Servicio social</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Posgrado</a></li>
+                <li class="nav-item mb-2"><a href="https://www.escom.ipn.mx/" class="nav-link p-0 text-muted" target="_blank">Pagina ESCOM</a></li>
+                <li class="nav-item mb-2"><a href="https://www.saes.escom.ipn.mx/" class="nav-link p-0 text-muted" target="_blank">SAES</a></li>
+                <li class="nav-item mb-2"><a href="https://www.escom.ipn.mx/htmls/escomunidad/catt.php" class="nav-link p-0 text-muted" target="_blank">CATT</a></li>
+                <li class="nav-item mb-2"><a href="https://www.escom.ipn.mx/SSEIS/apoyoseducativos/servicios/servicioSocial.php" class="nav-link p-0 text-muted" target="_blank">Servicio social</a></li>
+                <li class="nav-item mb-2"><a href="https://www.escom.ipn.mx/posgrado/" class="nav-link p-0 text-muted" target="_blank">Posgrado</a></li>
             </ul>
         </div>
 
@@ -106,27 +99,27 @@
             <ul class="nav flex-column">
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-facebook text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">ESCOM IPN MX</a>
+                    <a href="https://www.facebook.com/escomipnmx/" class="nav-link p-0 text-muted" target="_blank">ESCOM IPN MX</a>
                 </li>
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-square-twitter text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">ESCOMUNIDAD</a>
+                    <a href="https://twitter.com/escomunidad/" class="nav-link p-0 text-muted" target="_blank">ESCOMUNIDAD</a>
                 </li>
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-facebook text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">Becas ESCOM</a>
+                    <a href="https://www.facebook.com/BecasEscom/" class="nav-link p-0 text-muted" target="_blank">Becas ESCOM</a>
                 </li>
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-facebook text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">Servicio social ESCOM</a>
+                    <a href="https://www.facebook.com/ssescom/" class="nav-link p-0 text-muted" target="_blank">Servicio social ESCOM</a>
                 </li>
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-facebook text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">Red de genero ESCOM</a>
+                    <a href="https://www.facebook.com/redgeneroescom/" class="nav-link p-0 text-muted" target="_blank">Red de genero ESCOM</a>
                 </li>
                 <li class="nav-item mb-2 d-flex justify-content-start align-items-center">
                     <i class="fa-brands fa-facebook text-muted pe-2"></i>
-                    <a href="#" class="nav-link p-0 text-muted">Bolsa de trabajo ESCOM</a>
+                    <a href="https://www.facebook.com/bolsaescom/" class="nav-link p-0 text-muted" target="_blank">Bolsa de trabajo ESCOM</a>
                 </li>
             </ul>
         </div>

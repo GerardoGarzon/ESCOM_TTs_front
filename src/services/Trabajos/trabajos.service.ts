@@ -102,7 +102,18 @@ export class TrabajosService {
             })
     }
 
-    eliminarAlumnoTrabajo() {
-
+    eliminarAlumnoTrabajo(id: number, tt_id: number, token: string): Observable<GeneralResponse> {
+        return this.http.put<GeneralResponse>(`${this.endpoint}/trabajo/delete/student`,
+            {
+                tt_id: tt_id.toString(),
+                alumno_id: id.toString()
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
     }
 }

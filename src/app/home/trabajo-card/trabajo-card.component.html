@@ -1,7 +1,10 @@
 <div class="card">
     <div class="card-body d-flex align-items-center justify-content-between">
         <div class="col-8 col-lg-10">
-            <h5 class="card-title pe-1">{{ titulo }}</h5>
+            <a class="link-dark" routerLink="/home/trabajo/detail/{{link}}" *ngIf="edit">
+                <h5 class="card-title pe-1">{{ titulo }}</h5>
+            </a>
+            <h5 class="card-title pe-1" *ngIf="!edit">{{ titulo }}</h5>
             <h6 class="card-subtitle mb-2 text-muted d-flex align-items-center my-1">
                 {{ identificador }}
                 <div class="vr mx-2" style="width: 1.5px;"></div>
@@ -32,7 +35,7 @@
 
 <app-update-trabajo
     [id]="id"
-    (actualizadoExitosamente)="this.actualizarLista.emit()">
+    (actualizadoExitosamente)="updateListView()">
 </app-update-trabajo>
 
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">

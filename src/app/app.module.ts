@@ -26,6 +26,7 @@ import { CreateTrabajoComponent } from './home/create-trabajo/create-trabajo.com
 import { EditTrabajoComponent } from './home/edit-trabajo/edit-trabajo.component';
 import { AddStudentTrabajoComponent } from './home/add-student-trabajo/add-student-trabajo.component';
 import { UpdateTrabajoComponent } from './home/update-trabajo/update-trabajo.component';
+import { UpdateProfesorLinksComponent } from './home/update-profesor-links/update-profesor-links.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -56,7 +57,8 @@ export function playerFactory(): any {
         CreateTrabajoComponent,
         EditTrabajoComponent,
         AddStudentTrabajoComponent,
-        UpdateTrabajoComponent
+        UpdateTrabajoComponent,
+        UpdateProfesorLinksComponent
     ],
     imports: [
         BrowserModule,

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {TrabajosService} from "../../../services/Trabajos/trabajos.service";
 import {Router} from "@angular/router";
@@ -51,12 +51,12 @@ export class UpdateTrabajoComponent {
 
     constructor(private formBuilder: FormBuilder,
                 private TrabajoInjection: TrabajosService,
-                private router: Router) {
+                private router: Router,
+                private ref: ChangeDetectorRef ) {
     }
 
     ngOnInit(): void {
         // @ts-ignore
-
         this.token = localStorage.getItem('token')
         if (this.token == null ) {
 
@@ -119,12 +119,12 @@ export class UpdateTrabajoComponent {
             let tipo = this.formularioCreado.controls['tipoTrabajo'].value
 
             this.TrabajoInjection.actualizarTrabajoTerminal(this.id, nombre, descripcion, link, tipo, this.token).subscribe((response) => {
-                if (response.code == 201) {
+                if (response.code == 200) {
                     this.showToastSuccess(response.message)
                     this.actualizadoExitosamente.emit()
                     this.closebutton.nativeElement.click();
                 } else {
-                    this.showToastSuccess(response.message)
+                    this.showToastError(response.message)
                 }
             }, (error) => {
                 this.showToastError('Ocurrio un error, intente nuevamente')
@@ -159,6 +159,22 @@ export class UpdateTrabajoComponent {
 
         }, (error) => {
             this.router.navigate(['..'])
+        })
+    }
+
+    eliminarAlumno(id: number, tt_id: number) {
+        this.TrabajoInjection.eliminarAlumnoTrabajo(id, tt_id, this.token).subscribe((trabajoResponse) => {
+            if (trabajoResponse.code == 200) {
+                this.showToastSuccess(trabajoResponse.message)
+                this.trabajo.alumnos = this.trabajo.alumnos.filter((value) => {
+                    return value.id != id
+                })
+            } else {
+                this.showToastError(trabajoResponse.message)
+            }
+
+        }, (error) => {
+            this.showToastError('Ocurrio un error al eliminar el alumno')
         })
     }
 }

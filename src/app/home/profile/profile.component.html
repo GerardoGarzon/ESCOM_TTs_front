@@ -139,78 +139,7 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="modalDrive" tabindex="-1" aria-labelledby="modalDriveLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalDriveLabel">Link a mis archivos</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalGithub" tabindex="-1" aria-labelledby="modalGithubLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalGithubLabel">Link a mi Github</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalLocation" tabindex="-1" aria-labelledby="modalLocationLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalLocationLabel">Mi ubicación en la escuela</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalPhone" tabindex="-1" aria-labelledby="modalPhoneLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalPhoneLabel">Mi telefono</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
+<app-update-profesor-links></app-update-profesor-links>
 
 <app-create-trabajo
     (agregadoExitosamente)="obtenerTrabajosProfesor()">
