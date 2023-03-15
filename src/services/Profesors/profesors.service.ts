@@ -34,9 +34,10 @@ export class ProfesorsService {
     }
 
     agregarLink(tipo: string, url: string, token: string) {
-        return this.http.post<ActivateUserResponse>(`${this.endpoint}/add/${tipo}URL`,
+        return this.http.post<ActivateUserResponse>(`${this.endpoint}/profesor/link`,
             {
-                url: url
+                tipo: tipo,
+                data: url
             },
             {
                 headers: {

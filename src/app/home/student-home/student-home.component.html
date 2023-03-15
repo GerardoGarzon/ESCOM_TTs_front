@@ -77,14 +77,22 @@
                             <i class="fa-solid fa-envelope me-3"></i>
                             <a class="card-text link-dark py-3 text-decoration-none"
                                href="mailto:{{profesor.email}}">{{ profesor.email }}</a>
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fa-solid fa-phone me-3"></i>
-                        <a class="py-3 link-dark text-decoration-none" href="tel:{{profesor.phone}}">{{ profesor.phone }}</a>
-                    </li>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa-solid fa-phone me-3"></i>
+                            <a class="py-3 link-dark text-decoration-none" href="tel:{{profesor.phone}}">{{ profesor.phone }}</a>
+                        </li>
                         <li *ngIf="profesor.location != null" class="list-group-item">
                             <i class="fa-solid fa-location-dot me-3"></i>
                             {{ profesor.location }}
+                        </li>
+                        <li class="list-group-item" *ngIf="profesor.driveURL != null">
+                            <i class="fa-solid fa-file pe-3"></i>
+                            <a class="link-dark text-decoration-none" href="{{profesor.driveURL}}" target="_blank">Archivos del profesor</a>
+                        </li>
+                        <li class="list-group-item" *ngIf="profesor.githubURL != null">
+                            <i class="fa-brands fa-github pe-3"></i>
+                            <a class="link-dark text-decoration-none"  href="{{profesor.githubURL}}" target="_blank">Github</a>
                         </li>
                     </ul>
                     <div class="card-footer d-flex justify-content-end align-items-center w-100">

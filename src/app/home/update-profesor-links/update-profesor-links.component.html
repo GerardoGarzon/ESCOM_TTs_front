@@ -1,55 +1,68 @@
 <!-- Modal -->
 <div class="modal fade" id="modalDrive" tabindex="-1" aria-labelledby="modalDriveLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalDriveLabel">Link a mis archivos</h1>
                 <button type="button" #btnFilesClose class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
-
+                <form [formGroup]="formArchivos">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="link" class="form-control" id="floatingFiles" placeholder="Link">
+                        <label for="floatingFiles">Link</label>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-success" (click)="agregarData(2)">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="modalGithub" tabindex="-1" aria-labelledby="modalGithubLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalGithubLabel">Link a mi Github</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" #btnGithubClose class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form [formGroup]="formGithub">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="link" class="form-control" id="floatingGithub" placeholder="Link">
+                        <label for="floatingGithub">Link</label>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-success" (click)="agregarData(1)">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="modalLocation" tabindex="-1" aria-labelledby="modalLocationLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalLocationLabel">Mi ubicación en la escuela</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" #btnLocationClose class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form [formGroup]="formLocation">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="link" class="form-control" id="floatingLocation" placeholder="Link">
+                        <label for="floatingLocation">Link</label>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-success" (click)="agregarData(3)">Guardar</button>
             </div>
         </div>
     </div>
@@ -60,15 +73,46 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalPhoneLabel">Mi telefono</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" #btnPhoneClose class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form [formGroup]="formPhone">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="link" class="form-control" id="floatingPhone" placeholder="Link">
+                        <label for="floatingPhone">Link</label>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-success" (click)="agregarData(0)">Guardar</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-danger border-0"
+         id="addLinkToastError" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ this.message }}
+            </div>
+            <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    type="button"></button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div aria-atomic="true" aria-live="assertive" class="toast align-items-center text-bg-success border-0"
+         id="addLinkToastSuccess" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ this.message }}
+            </div>
+            <button aria-label="Close" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    type="button"></button>
         </div>
     </div>
 </div>

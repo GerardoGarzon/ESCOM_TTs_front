@@ -4,6 +4,9 @@ import {ProfesorsService} from "../../../services/Profesors/profesors.service";
 import {Trabajo} from "../../../services/Responses/TrabajosProfesorResponse";
 import {TrabajosService} from "../../../services/Trabajos/trabajos.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {PasswordResetService} from "../../../services/PasswordReset/password-reset.service";
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-profile',
@@ -21,11 +24,14 @@ export class ProfileComponent implements OnInit {
     token: string = ''
     trabajosActivos: Array<Trabajo> = new Array<Trabajo>()
     trabajosFinalizados: Array<Trabajo> = new Array<Trabajo>()
+    email: string = ''
+    message: string = ''
 
     constructor(private ProfesorInjection: ProfesorsService,
                 private TrabajosInjection: TrabajosService,
                 private route: ActivatedRoute,
-                private router: Router) {
+                private router: Router,
+                private PasswordInjection: PasswordResetService) {
     }
 
     ngOnInit(): void {
@@ -36,7 +42,10 @@ export class ProfileComponent implements OnInit {
         // @ts-ignore
         this.token = localStorage.getItem('token')
 
-        if (this.token == null || this.id == null) {
+        // @ts-ignore
+        this.email = localStorage.getItem('userEmail')
+
+        if ( this.token == null || this.email == null || this.id == null) {
             this.router.navigate(['/'])
         }
 
@@ -74,14 +83,6 @@ export class ProfileComponent implements OnInit {
         })
     }
 
-    agregarLink(tipo: string) {
-        this.ProfesorInjection.agregarLink(tipo, "", this.token).subscribe((response) => {
-
-        }, (error) => {
-
-        })
-    }
-
     removeFromList(event: any) {
         this.trabajosActivos = this.trabajosActivos.filter((value) => {
             return value.id != event
@@ -89,5 +90,31 @@ export class ProfileComponent implements OnInit {
         this.trabajosFinalizados = this.trabajosFinalizados.filter((value) => {
             return value.id != event
         })
+    }
+
+    solicitarCambioPass() {
+        this.showSpinner = true
+        this.PasswordInjection.solicitarCambioContrasena(this.email).subscribe((forgotPasswordResponse) => {
+            this.showSpinner = false
+            if (forgotPasswordResponse.code == 200) {
+                this.showToastSuccess(forgotPasswordResponse.message)
+            } else {
+                this.showToastError(forgotPasswordResponse.message)
+            }
+        })
+    }
+
+    showToastError(errorMessage: string) {
+        this.message = errorMessage
+        const toastLiveExample = document.getElementById('passwordToastError')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    }
+
+    showToastSuccess(successMessage: string) {
+        this.message = successMessage
+        const toastLiveExample = document.getElementById('passwordToastSuccess')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
     }
 }
