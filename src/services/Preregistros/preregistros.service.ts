@@ -55,11 +55,11 @@ export class PreregistrosService {
     }
 
     activarPreregistros(alumno: Array<string>, token: string): Observable<ActivateUserResponse> {
-        return this.http.delete<ActivateUserResponse>(`${this.endpoint}/alumnos/activate`,
+        return this.http.put<ActivateUserResponse>(`${this.endpoint}/alumnos/activate`,
             {
-                body: {
-                    alumnos_email: alumno
-                },
+                alumnos_email: alumno
+            },
+            {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
                     'Accept': 'application/json',

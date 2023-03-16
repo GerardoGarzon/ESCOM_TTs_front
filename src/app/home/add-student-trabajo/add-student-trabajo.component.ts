@@ -71,7 +71,7 @@ export class AddStudentTrabajoComponent implements OnInit {
             })
 
             this.TrabajoInjection.agregarAlumnoTrabajo(this.id, alumnos, this.token).subscribe((response) => {
-                if (response.code == 201) {
+                if (response.code == 200) {
                     this.showToastSuccess(response.message)
                     this.actualizadoExitosamente.emit()
                     this.closebutton.nativeElement.click();
