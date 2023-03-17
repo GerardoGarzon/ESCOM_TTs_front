@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {PasswordResetService} from "../../services/PasswordReset/password-reset.service";
+import {PasswordResetService} from "../../../services/PasswordReset/password-reset.service";
 
 declare var bootstrap: any;
 

@@ -5,7 +5,7 @@ import {RegisterComponent} from "./register/register.component";
 import {VerifyOtpComponent} from "./verify-otp/verify-otp.component";
 import {FinishRegisterComponent} from "./finish-register/finish-register.component";
 import {InactiveAccountComponent} from "./inactive-account/inactive-account.component";
-import {RequestNewPasswordComponent} from "./request-new-password/request-new-password.component";
+import {RequestNewPasswordComponent} from "./home/request-new-password/request-new-password.component";
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {HomeComponent} from "./home/home.component";
@@ -16,6 +16,7 @@ import {ProfesorDetailComponent} from "./home/profesor-detail/profesor-detail.co
 import {TrabajoDetailComponent} from "./home/trabajo-detail/trabajo-detail.component";
 import {ActivateAccountComponent} from "./home/activate-account/activate-account.component";
 import {ProfileComponent} from "./home/profile/profile.component";
+import {SearchTrabajoComponent} from "./home/search-trabajo/search-trabajo.component";
 
 const routes: Routes = [
     {
@@ -73,6 +74,10 @@ const routes: Routes = [
             {
                 path: 'profile',
                 component: ProfileComponent
+            },
+            {
+                path: 'trabajo/search',
+                component: SearchTrabajoComponent
             }
         ]
     },

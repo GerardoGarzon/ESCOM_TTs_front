@@ -1,0 +1,38 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand">Buscar trabajos</a>
+    </div>
+</nav>
+
+<div class="container py-4">
+    Ingresa el nombre del trabajo terminal o el numero de TT.
+    <div class="d-flex align-items-center justify-content-center">
+        <form class="flex-fill me-2" [formGroup]="fromularioCreado">
+            <div class="form-floating my-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre | TT_ID" formControlName="query">
+                <label for="floatingInput">Buscar</label>
+            </div>
+        </form>
+        <button class="btn btn-success ms-2" (click)="buscarTrabajos()">Buscar</button>
+    </div>
+
+    <div class="col-12 col-lg-12">
+        <div class="vstack gap-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="text-start fw-bold text-dark">Trabajos terminales</h2>
+            </div>
+            <hr>
+            <ng-template ngFor let-trabajo [ngForOf]="trabajos">
+                <app-trabajo-card
+                    [id]="trabajo.id"
+                    [titulo]="trabajo.nombre"
+                    [identificador]="trabajo.identificado"
+                    [link]="trabajo.id"
+                    [status]="trabajo.type"
+                    [edit]="false">
+                </app-trabajo-card>
+            </ng-template>
+            <h5 *ngIf="trabajos.length == 0" class="fw-bold text-muted text-center py-5">No se encontraron trabajos</h5>
+        </div>
+    </div>
+</div>

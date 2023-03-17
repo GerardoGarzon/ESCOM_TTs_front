@@ -116,4 +116,15 @@ export class TrabajosService {
                 }
             })
     }
+
+    buscarTrabajos(query: string, token: string): Observable<TrabajosProfesorResponse> {
+        return this.http.get<TrabajosProfesorResponse>(`${this.endpoint}/trabajo/search?query=${query}`,
+            {
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
 }

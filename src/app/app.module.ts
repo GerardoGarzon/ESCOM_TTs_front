@@ -8,7 +8,7 @@ import {RegisterComponent} from './register/register.component';
 import {VerifyOtpComponent} from './verify-otp/verify-otp.component';
 import {FinishRegisterComponent} from './finish-register/finish-register.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import {RequestNewPasswordComponent} from './request-new-password/request-new-password.component';
+import {RequestNewPasswordComponent} from './home/request-new-password/request-new-password.component';
 import {InactiveAccountComponent} from './inactive-account/inactive-account.component';
 import {NotFoundPageComponent} from './not-found-page/not-found-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -27,6 +27,7 @@ import { EditTrabajoComponent } from './home/edit-trabajo/edit-trabajo.component
 import { AddStudentTrabajoComponent } from './home/add-student-trabajo/add-student-trabajo.component';
 import { UpdateTrabajoComponent } from './home/update-trabajo/update-trabajo.component';
 import { UpdateProfesorLinksComponent } from './home/update-profesor-links/update-profesor-links.component';
+import { SearchTrabajoComponent } from './home/search-trabajo/search-trabajo.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -58,7 +59,8 @@ export function playerFactory(): any {
         EditTrabajoComponent,
         AddStudentTrabajoComponent,
         UpdateTrabajoComponent,
-        UpdateProfesorLinksComponent
+        UpdateProfesorLinksComponent,
+        SearchTrabajoComponent
     ],
     imports: [
         BrowserModule,
