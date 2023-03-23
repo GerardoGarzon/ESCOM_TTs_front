@@ -1,6 +1,6 @@
 <nav class="navbar bg_escom navbar-expand-lg" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand" routerLink="{{this.homePath}}">
+        <a class="navbar-brand" routerLink="/home">
             <img src="assets/logo/logoESCOMBlanco.png" alt="ESCOM" width="80" height="50">
         </a>
 
@@ -32,7 +32,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" style="">
                     <li><a class="dropdown-item disabled"> {{ this.userName }} </a></li>
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" routerLink="/home/profile">Perfil</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrar sesión</a></li>
                 </ul>
@@ -47,7 +47,7 @@
             <div class="d-flex flex-column align-items-center justify-content-center py-3">
                 <img class="pb-3" src="assets/logo/logoESCOMBlanco.png" alt="ESCOM" width="150" height="100">
                 <h5> {{ this.userName }} </h5>
-                <a class="nav-link" (click)="cerrarSesion()">Cerrar sesión</a>
+                <a class="nav-link" (click)="cerrarSesion()" style="cursor:pointer;">Cerrar sesión</a>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -126,9 +126,4 @@
     </footer>
 </div>
 
-<div *ngIf="showSpinner"
-     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
-    <div class="spinner-border text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>

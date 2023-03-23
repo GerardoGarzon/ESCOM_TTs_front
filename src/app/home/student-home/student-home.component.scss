@@ -1,3 +1,12 @@
 .btn-orange {
     background-color: rgba(251,110,48,0.5)
 }
+
+.active > a {
+    background-color: rgb(251, 110, 48);
+    border-color: rgb(251, 110, 48);
+}
+
+.link-orange {
+    color: rgb(251, 110, 48);
+}

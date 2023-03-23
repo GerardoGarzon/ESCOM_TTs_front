@@ -13,14 +13,24 @@ export class ProfesorsService {
     constructor(private http: HttpClient) {
     }
 
-    leerProfesores(): Observable<ProfesorsResponse> {
-        return this.http.get<ProfesorsResponse>(`${this.endpoint}/profesors`,
-            {
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'Accept': 'application/json'
-                }
-            })
+    leerProfesores(pagination: boolean = false, page: number = 0): Observable<ProfesorsResponse> {
+        if ( pagination ) {
+            return this.http.get<ProfesorsResponse>(`${this.endpoint}/profesors?page=${page}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Accept': 'application/json'
+                    }
+                })
+        } else {
+            return this.http.get<ProfesorsResponse>(`${this.endpoint}/profesors`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Accept': 'application/json'
+                    }
+                })
+        }
     }
 
     obtenerProfesor(id: number): Observable<Profesor> {

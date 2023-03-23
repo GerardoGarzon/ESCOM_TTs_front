@@ -12,16 +12,31 @@
             </h6>
         </div>
         <div class="col-4 col-lg-2 text-center">
-            <a class="text-decoration-none" [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#modalAgregar'+ id" *ngIf="edit">
+            <a
+                class="text-decoration-none"
+                [attr.data-bs-toggle]="'modal'"
+                [attr.data-bs-target]="'#modalAgregar'+ id"
+                *ngIf="edit">
                 <i class="fa-solid fa-square-plus fa-xl me-2" style="cursor: pointer"></i>
             </a>
-            <a [attr.data-bs-toggle]="'modal'" [attr.data-bs-target]="'#modalActualizar'+ id" *ngIf="edit">
+            <a
+                class="text-decoration-none"
+                [attr.data-bs-toggle]="'modal'"
+                [attr.data-bs-target]="'#modalActualizar'+ id"
+                *ngIf="edit">
                 <i class="fa-solid fa-square-pen fa-xl me-2" style="cursor: pointer"></i>
             </a>
-            <a routerLink="/home/trabajo/detail/{{link}}" *ngIf="!edit">
+            <a
+                class="text-decoration-none"
+                routerLink="/home/trabajo/detail/{{link}}"
+                *ngIf="!edit">
                 <i class="fa-solid fa-circle-chevron-right fa-xl me-2" style="cursor: pointer"></i>
             </a>
-            <a data-bs-toggle="modal" data-bs-target="#modalDelete" *ngIf="edit">
+            <a
+                class="text-decoration-none"
+                data-bs-toggle="modal"
+                data-bs-target="#modalDelete"
+                *ngIf="edit">
                 <i class="fa-solid fa-square-minus fa-xl me-2" style="cursor: pointer"></i>
             </a>
         </div>

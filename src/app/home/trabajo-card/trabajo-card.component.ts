@@ -20,7 +20,6 @@ export class TrabajoCardComponent implements OnInit {
     @Output() actualizarLista = new EventEmitter()
 
     token: string = ''
-
     statusString: string = ''
     message: string = ''
 

@@ -136,12 +136,7 @@
     </div>
 </div>
 
-<div *ngIf="showSpinner"
-     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
-    <div class="spinner-border text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>
 
 <app-update-profesor-links
     [telefono]="profesorDetail.phone"

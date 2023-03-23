@@ -15,6 +15,7 @@ export class SearchTrabajoComponent implements OnInit {
     // @ts-ignore
     fromularioCreado: FormGroup
     token: string = ''
+    showSpinner: boolean = false
 
     constructor(private TrabajosInjection: TrabajosService,
                 private formBuilder: FormBuilder,
@@ -42,6 +43,7 @@ export class SearchTrabajoComponent implements OnInit {
     }
 
     buscarTrabajos() {
+        this.showSpinner = true
         if (this.fromularioCreado.controls['query'].valid) {
             this.TrabajosInjection.buscarTrabajos(this.fromularioCreado.controls['query'].value, this.token).subscribe((response) => {
                 if (response.code == 200) {
@@ -49,6 +51,9 @@ export class SearchTrabajoComponent implements OnInit {
                 } else {
                     this.trabajos = new Array<Trabajo>()
                 }
+                this.showSpinner = false
+            }, (error) => {
+                this.showSpinner = false
             })
         }
     }

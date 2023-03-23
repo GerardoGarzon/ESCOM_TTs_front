@@ -92,11 +92,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('token', token.access_token)
                         localStorage.setItem('userEmail', this.formularioCreado.controls['email'].value)
                         localStorage.setItem('isAlumno', String(token.isAlumno))
-                        if ( token.isAlumno ) {
-                            this.router.navigate(['/home/alumno'])
-                        } else {
-                            this.router.navigate(['/home/profesor'])
-                        }
+                        this.router.navigate(['/home/'])
                     }
                 });
             }

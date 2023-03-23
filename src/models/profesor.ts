@@ -1,7 +1,9 @@
 export class ProfesorsResponse {
     constructor(public code: number = 0,
                 public message: string = "",
-                public data: Array<Profesor> = new Array<Profesor>()) {
+                public data: Array<Profesor> = new Array<Profesor>(),
+                public numberPages: number = 0,
+                public activePage: number = 0) {
     }
 }
 

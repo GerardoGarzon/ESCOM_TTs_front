@@ -19,30 +19,40 @@
 
                             <div class="input-group my-5">
                                 <input aria-label="otp-1"
-                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       #num1
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2 fw-semibold fs-3"
                                        maxlength="1"
                                        size="1" type="text"
-                                        formControlName="num_1">
+                                        formControlName="num_1"
+                                        (keyup)="inputFill(1)">
                                 <input aria-label="otp-2"
-                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       #num2
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2 fw-semibold fs-3"
                                        maxlength="1"
                                        size="1" type="text"
-                                       formControlName="num_2">
+                                       formControlName="num_2"
+                                       (keyup)="inputFill(2)">
                                 <input aria-label="otp-3"
-                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       #num3
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2 fw-semibold fs-3"
                                        maxlength="1"
                                        size="1" type="text"
-                                       formControlName="num_3">
+                                       formControlName="num_3"
+                                       (keyup)="inputFill(3)">
                                 <input aria-label="otp-4"
-                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2"
+                                       #num4
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border me-2 fw-semibold fs-3"
                                        maxlength="1"
                                        size="1" type="text"
-                                       formControlName="num_4">
+                                       formControlName="num_4"
+                                       (keyup)="inputFill(4)">
                                 <input aria-label="otp-5"
-                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border"
+                                       #num5
+                                       class="form-control text-center shadow-sm py-3 bg-body-tertiary rounded-2 border fw-semibold fs-3"
                                        maxlength="1"
                                        size="1" type="text"
-                                       formControlName="num_5">
+                                       formControlName="num_5"
+                                       (keyup)="inputFill(5)">
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center">
@@ -87,9 +97,4 @@
     </div>
 </div>
 
-<div *ngIf="showSpinner"
-     class="vw-100 vh-100 bg-dark opacity-75 d-flex align-items-center justify-content-center position-absolute top-0 start-0">
-    <div class="spinner-border text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
+<app-spinner *ngIf="showSpinner"></app-spinner>

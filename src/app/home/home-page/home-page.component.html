@@ -1,0 +1,95 @@
+<div class="container">
+
+    <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide mt-3 shadow-lg mb-2 bg-body-tertiary rounded" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/assets/logo/banner_escom_1.png" class="d-block w-100 rounded-3 d-none d-md-flex">
+                <img src="/assets/logo/banner_escom_lg_1.png" class="d-block w-100 rounded-3 d-md-none">
+            </div>
+            <div class="carousel-item">
+                <img src="/assets/logo/banner_escom_2.png" class="d-block w-100 rounded-3 d-none d-md-flex">
+                <img src="/assets/logo/banner_escom_lg_2.png" class="d-block w-100 rounded-3 d-md-none">
+            </div>
+            <div class="carousel-item">
+                <img src="/assets/logo/banner_escom_3.png" class="d-block w-100 rounded-3 d-none d-md-flex">
+                <img src="/assets/logo/banner_escom_lg_3.png" class="d-block w-100 rounded-3 d-md-none">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 p-4">
+            <div class="bg-body rounded-3 p-4 vstack gap-3">
+                <ng-lottie
+                    (animationCreated)="onAnimate($event)"
+                    [options]="optionsTrabajos"
+                    class="rounded-circle mx-auto"
+                    width="140px"
+                    height="140px">
+                </ng-lottie>
+                <h2 class="fw-semibold mx-auto">Buscar trabajos</h2>
+                <p>Busca trabajos terminales por su nombre o utilizando el numero de TT asignado por la CATT</p>
+                <p class="ms-auto"><a class="btn btn-secondary btn-orange border-0" routerLink="/home/trabajo/search">
+                    <i class="fa-solid fa-circle-chevron-right fa-xl" style="cursor: pointer"></i>
+                </a></p>
+            </div>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-6 p-4">
+            <div class="bg-body rounded-3 p-4 vstack gap-3">
+                <ng-lottie
+                    (animationCreated)="onAnimate($event)"
+                    [options]="optionsProfesor"
+                    class="rounded-circle mx-auto"
+                    width="140px"
+                    height="140px">
+                </ng-lottie>
+                <h2 class="fw-semibold mx-auto">Buscar profesores</h2>
+                <p>Busca a tus profesores para poder ingresar a los trabajos terminales que estan dirigiendo actualmente y al historial de trabajos que ya terminaron.</p>
+                <p class="ms-auto"><a class="btn btn-secondary btn-orange border-0" routerLink="/home/profesor">
+                    <i class="fa-solid fa-circle-chevron-right fa-xl" style="cursor: pointer"></i>
+                </a></p>
+            </div>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-6 p-4" *ngIf="isProfesor">
+            <div class="bg-body rounded-3 p-4 vstack gap-3">
+                <ng-lottie
+                    (animationCreated)="onAnimate($event)"
+                    [options]="optionsActivar"
+                    class="rounded-circle mx-auto"
+                    width="140px"
+                    height="140px">
+                </ng-lottie>
+                <h2 class="fw-semibold mx-auto">Activar alumnos</h2>
+                <p>Activa la cuenta de los alumnos que se registraron y te escogieron para que actives su cuenta</p>
+                <p class="ms-auto"><a class="btn btn-secondary btn-orange border-0" routerLink="/home/activar/alumno">
+                    <i class="fa-solid fa-circle-chevron-right fa-xl" style="cursor: pointer"></i>
+                </a></p>
+            </div>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-6 p-4" *ngIf="isProfesor">
+            <div class="bg-body rounded-3 p-4 vstack gap-3">
+                <ng-lottie
+                    (animationCreated)="onAnimate($event)"
+                    [options]="optionsCrear"
+                    class="rounded-circle mx-auto"
+                    width="140px"
+                    height="140px">
+                </ng-lottie>
+                <h2 class="fw-semibold mx-auto">Editar mis trabajos</h2>
+                <p>Crea un nuevo trabajo terminal incluyendo la descripcion, los alumnos participantes y un link a los archivos publicos del trabajo.</p>
+                <p class="ms-auto"><a class="btn btn-secondary btn-orange border-0" routerLink="/home/profile">
+                    <i class="fa-solid fa-circle-chevron-right fa-xl" style="cursor: pointer"></i>
+                </a></p>
+            </div>
+        </div><!-- /.col-lg-4 -->
+    </div>
+
+</div>

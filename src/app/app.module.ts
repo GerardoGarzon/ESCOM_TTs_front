@@ -28,6 +28,8 @@ import { AddStudentTrabajoComponent } from './home/add-student-trabajo/add-stude
 import { UpdateTrabajoComponent } from './home/update-trabajo/update-trabajo.component';
 import { UpdateProfesorLinksComponent } from './home/update-profesor-links/update-profesor-links.component';
 import { SearchTrabajoComponent } from './home/search-trabajo/search-trabajo.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -60,7 +62,9 @@ export function playerFactory(): any {
         AddStudentTrabajoComponent,
         UpdateTrabajoComponent,
         UpdateProfesorLinksComponent,
-        SearchTrabajoComponent
+        SearchTrabajoComponent,
+        SpinnerComponent,
+        HomePageComponent
     ],
     imports: [
         BrowserModule,

@@ -17,6 +17,7 @@ import {TrabajoDetailComponent} from "./home/trabajo-detail/trabajo-detail.compo
 import {ActivateAccountComponent} from "./home/activate-account/activate-account.component";
 import {ProfileComponent} from "./home/profile/profile.component";
 import {SearchTrabajoComponent} from "./home/search-trabajo/search-trabajo.component";
+import {HomePageComponent} from "./home/home-page/home-page.component";
 
 const routes: Routes = [
     {
@@ -51,6 +52,10 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         children: [
+            {
+                path: '',
+                component: HomePageComponent
+            },
             {
                 path: 'profesor',
                 component: StudentHomeComponent

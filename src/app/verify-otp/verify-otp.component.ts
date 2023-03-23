@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProfesorsService} from "../../services/Profesors/profesors.service";
@@ -12,6 +12,16 @@ declare var bootstrap: any;
     styleUrls: ['./verify-otp.component.scss']
 })
 export class VerifyOtpComponent implements OnInit {
+    // @ts-ignore
+    @ViewChild('num1') input_1
+    // @ts-ignore
+    @ViewChild('num2') input_2
+    // @ts-ignore
+    @ViewChild('num3') input_3
+    // @ts-ignore
+    @ViewChild('num4') input_4
+    // @ts-ignore
+    @ViewChild('num5') input_5
     showSpinner: boolean = false
     message: string = ''
     // @ts-ignore
@@ -112,6 +122,33 @@ export class VerifyOtpComponent implements OnInit {
                 this.showToastError(resendResponse.message)
             }
         })
+    }
+
+    inputFill(inputID: number) {
+        switch (inputID) {
+            case 1:
+                if (this.formularioCreado.controls['num_1'].value.length == 1) {
+                    this.input_2.nativeElement.focus()
+                }
+                break
+            case 2:
+                if (this.formularioCreado.controls['num_2'].value.length == 1) {
+                    this.input_3.nativeElement.focus()
+                }
+                break
+            case 3:
+                if (this.formularioCreado.controls['num_3'].value.length == 1) {
+                    this.input_4.nativeElement.focus()
+                }
+                break
+            case 4:
+                if (this.formularioCreado.controls['num_4'].value.length == 1) {
+                    this.input_5.nativeElement.focus()
+                }
+                break
+            case 5:
+                break
+        }
     }
 
 }

@@ -102,4 +102,22 @@
             </div>
         </ng-template>
     </div>
+
+    <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" [ngClass]="{'disabled': activePage === 1}">
+                <a class="page-link link-orange" (click)="nextPageItems(activePage - 1)" style="cursor: pointer">Anterior</a>
+            </li>
+            <ng-template ngFor let-index [ngForOf]="arrayCount" let-i='index'>
+                <li class="page-item" [ngClass]="{'active': (i + 1) === activePage}">
+                    <a class="page-link" [ngClass]="{'link-orange': (i + 1) != activePage}" (click)="nextPageItems(i + 1)" style="cursor: pointer">{{ i + 1 }}</a>
+                </li>
+            </ng-template>
+            <li class="page-item" [ngClass]="{'disabled': activePage === numberPages}">
+                <a class="page-link link-orange" (click)="nextPageItems(activePage + 1)" style="cursor: pointer">Siguiente</a>
+            </li>
+        </ul>
+    </nav>
 </div>
+
+<app-spinner *ngIf="showSpinner"></app-spinner>
