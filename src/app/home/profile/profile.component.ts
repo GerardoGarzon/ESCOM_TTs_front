@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     trabajosFinalizados: Array<Trabajo> = new Array<Trabajo>()
     email: string = ''
     message: string = ''
+    isAlumno: string | null = ''
 
     constructor(private ProfesorInjection: ProfesorsService,
                 private TrabajosInjection: TrabajosService,
@@ -49,7 +50,16 @@ export class ProfileComponent implements OnInit {
             this.router.navigate(['/'])
         }
 
-        this.obtenerProfesorInfo()
+        this.isAlumno = localStorage.getItem('isAlumno')
+
+        console.log(this.isAlumno)
+
+        // @ts-ignore
+        if ( this.isAlumno == 'false' ) {
+            this.obtenerProfesorInfo()
+        } else {
+            this.router.navigate(['/home/alumno/profile'])
+        }
     }
 
     obtenerProfesorInfo() {

@@ -18,6 +18,7 @@ import {ActivateAccountComponent} from "./home/activate-account/activate-account
 import {ProfileComponent} from "./home/profile/profile.component";
 import {SearchTrabajoComponent} from "./home/search-trabajo/search-trabajo.component";
 import {HomePageComponent} from "./home/home-page/home-page.component";
+import {AlumnoProfileComponent} from "./home/alumno-profile/alumno-profile.component";
 
 const routes: Routes = [
     {
@@ -83,6 +84,10 @@ const routes: Routes = [
             {
                 path: 'trabajo/search',
                 component: SearchTrabajoComponent
+            },
+            {
+                path: 'alumno/profile',
+                component: AlumnoProfileComponent
             }
         ]
     },
