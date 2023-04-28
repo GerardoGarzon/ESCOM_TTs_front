@@ -78,7 +78,9 @@ export class LoginComponent implements OnInit {
             this.showToastError()
         } else {
             let regexp = new RegExp('[a-zA-Z0-9]+(@alumno.ipn.mx)')
-            if (!regexp.test(this.formularioCreado.controls['email'].value)) {
+            let regexpTeacher = new RegExp('[a-zA-Z0-9]+(@ipn.mx)')
+            if (!regexp.test(this.formularioCreado.controls['email'].value) &&
+                !regexpTeacher.test(this.formularioCreado.controls['email'].value)) {
                 this.showToastError()
             } else {
                 this.showSpinner = true

@@ -62,11 +62,18 @@ export class RegisterComponent implements OnInit {
             this.showToastError('No puedes dejar los campos vacios')
         } else {
             let regexp = new RegExp('[a-zA-Z0-9]+(@alumno.ipn.mx)')
-            if (!regexp.test(this.formularioCreado.controls['email'].value)) {
+            let regexpTeacher = new RegExp('[a-zA-Z0-9]+(@ipn.mx)')
+
+            if (!regexp.test(this.formularioCreado.controls['email'].value) &&
+                !regexpTeacher.test(this.formularioCreado.controls['email'].value)) {
+
                 this.showToastError('Correo invalido, debes ingresar tu correo institucional')
             } else if (this.formularioCreado.controls['isAlumno'].value &&
                 this.formularioCreado.controls['profesorId'].value == -1) {
                 this.showToastError('Debes seleccionar un profesor que autorice tu preregistro')
+            } else if (!this.formularioCreado.controls['isAlumno'].value &&
+                !regexpTeacher.test(this.formularioCreado.controls['email'].value) ) {
+                this.showToastError('Debes ingresar un correo de profesor para continuar con tu registro')
             } else {
                 this.showSpinner = true
                 let email = this.formularioCreado.controls['email'].value
